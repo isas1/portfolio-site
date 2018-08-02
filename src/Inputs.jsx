@@ -6,32 +6,45 @@ class Inputs extends Component {
     super(props);
 
     this.state = {
-      listItems: []
+      inputValue: '',
+      buttonValue: ''
     }
 
+    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     
   }
-  
 
-  handleChange = (event) => {
+  handleClick (event) {
     this.setState({
-      listItems: this.state.listItems.append(event.target.value)
+      buttonValue: this.state.inputValue
     })
-    console.log(this.state.listItems);
+  }
+
+  handleChange (event) {
+    this.setState({
+      inputValue: event.target.value
+    })
+    console.log(this.state.inputValue);
   }
 
   render() {
     return (
-      <div class="row-fluid">
-        <form class="form-horizontal">
+      <div className="row-fluid">
+        <form className="form-horizontal">
           <fieldset>
             <legend> My Form</legend>
             
             
               <h1>Section 1</h1>
+
+
               <p>Input 1</p>
-              <input type="text" id="input1" onChange={this.handleChange} />
+              <input type="text" id="input1" onChange={this.handleChange}/>
+              <p>{this.state.inputValue}</p>
+
+              <button onClick={this.handleClick}> {this.state.buttonValue} </button>
+
               <p>Input 2</p>
               <input type="text" id="input2" onChange={this.handleChange} />
               
@@ -39,13 +52,13 @@ class Inputs extends Component {
               
               <p>Radio Inputs</p>
               <input type="radio" id="contactChoice1" name="contact" value="email" />
-              <label for="contactChoice1">Email</label>
+              <label>Email</label>
               
               <input type="radio" id="contactChoice2" name="contact" value="phone" />
-              <label for="contactChoice2">Phone</label>
+              <label>Phone</label>
               
               <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label for="contactChoice3">Mail</label>
+              <label>Mail</label>
               
          
             
@@ -53,19 +66,19 @@ class Inputs extends Component {
             
               <h1>Section 2</h1>
               <p>Input 1</p>
-              <input type="text" id="input1" onkeyup="getVals()"/>
+              <input type="text" id="input1" />
               <p>Input 2</p>
-              <input type="text" id="input2" onkeyup="getVals()" />
+              <input type="text" id="input2" />
               
               <p>Radio Inputs</p>
               <input type="radio" id="contactChoice1" name="contact" value="email" />
-              <label for="contactChoice1">Email</label>
+              <label>Email</label>
               
               <input type="radio" id="contactChoice2" name="contact" value="phone" />
-              <label for="contactChoice2">Phone</label>
+              <label>Phone</label>
               
               <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label for="contactChoice3">Mail</label>
+              <label>Mail</label>
               
             
             
