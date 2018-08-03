@@ -31,7 +31,6 @@ class Inputs extends Component {
   render() {
     return (
       <div className="row-fluid">
-        <form className="form-horizontal">
           <fieldset>
             <legend> My Form</legend>
             
@@ -90,7 +89,6 @@ class Inputs extends Component {
             <p></p>
             
           </fieldset>
-        </form>
 	    </div>
     );
   }
