@@ -1,5 +1,74 @@
 import React, { Component } from 'react';
 
+//material-ui imports
+import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
+import purple from '@material-ui/core/colors/purple';
+import green from '@material-ui/core/colors/green';
+// Styles
+
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  margin: {
+    margin: theme.spacing.unit,
+  },
+  cssLabel: {
+    '&$cssFocused': {
+      color: purple[500],
+    },
+  },
+  cssFocused: {},
+  cssUnderline: {
+    '&:after': {
+      borderBottomColor: purple[500],
+    },
+  },
+  bootstrapRoot: {
+    padding: 0,
+    'label + &': {
+      marginTop: theme.spacing.unit * 3,
+    },
+  },
+  bootstrapInput: {
+    borderRadius: 4,
+    backgroundColor: theme.palette.common.white,
+    border: '1px solid #ced4da',
+    fontSize: 16,
+    padding: '10px 12px',
+    width: 'calc(100% - 24px)',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      borderColor: '#80bdff',
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+    },
+  },
+  bootstrapFormLabel: {
+    fontSize: 18,
+  },
+});
+
+const theme = createMuiTheme({
+  palette: {
+    primary: green,
+  },
+});
+
 
 class Inputs extends Component {
   constructor(props) {
@@ -34,26 +103,33 @@ class Inputs extends Component {
     });
   }
   render() {
+
+    const { classes } = this.props;
+
     return (
       <div>
-        <div className="container top">
-          <div className="row">
-            <div className="col-lg-12">
-              <h2 className="text-center">Shopping List</h2>
+        <div className="">
+          <div className="">
+            <div className="">
+              <h2 className="">Shopping List</h2>
             </div>
           </div>
         </div>
-        <div className="container wb">
-          <div className="row">
+        <div className="">
+          <div className="">
             <form onSubmit={this.createTodo}>
-              <div className="col-lg-12 input-group">
-                <input type="number"
-                  className="center-block"
+              <div className="">
+                <Input
+                  classes={{
+                    underline: classes.cssUnderline,
+                  }}
+                  id="custom-css-input"
+                  type="number"
                   placeholder="Insert here…"
                   value={this.state.todoText}
                   onChange={this.updateTodoText}
                 />
-                <button className="btn btn-success center-block">Create</button>
+                <button className="">Create</button>
               </div>
             </form>
             <ul>
@@ -71,4 +147,4 @@ class Inputs extends Component {
 
 }
 
-export default Inputs;
+export default withStyles(styles)(Inputs);
