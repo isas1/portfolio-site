@@ -4,94 +4,71 @@ import React, { Component } from 'react';
 class Inputs extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      inputValue: '',
-      buttonValue: ''
-    }
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    
+      todosInit: ['100 kg Meat', 'Ham', 'Cheese'],
+      todos: [],
+      todoText: '',
+      message: false
+    };
+    this.updateTodoText = this.updateTodoText.bind(this);
+    this.createTodo = this.createTodo.bind(this);
   }
 
-  handleClick (event) {
+  componentDidMount() {
     this.setState({
-      buttonValue: this.state.inputValue
-    })
+      todos: this.state.todosInit,
+    });
   }
 
-  handleChange (event) {
+  updateTodoText(e) {
     this.setState({
-      inputValue: event.target.value
-    })
-    console.log(this.state.inputValue);
+      todoText: e.target.value
+    });
   }
 
+  createTodo(e) {
+    e.preventDefault();
+    this.setState({
+      todos: [...this.state.todos, this.state.todoText],
+      todoText: '',
+    });
+  }
   render() {
     return (
-      <div className="row-fluid">
-          <fieldset>
-            <legend> My Form</legend>
-            
-            
-              <h1>Section 1</h1>
-
-
-              <p>Input 1</p>
-              <input type="text" id="input1" onChange={this.handleChange}/>
-              <p>{this.state.inputValue}</p>
-
-              <button onClick={this.handleClick}> {this.state.buttonValue} </button>
-
-              <p>Input 2</p>
-              <input type="text" id="input2" onChange={this.handleChange} />
-              
-              <p id="test"></p>
-              
-              <p>Radio Inputs</p>
-              <input type="radio" id="contactChoice1" name="contact" value="email" />
-              <label>Email</label>
-              
-              <input type="radio" id="contactChoice2" name="contact" value="phone" />
-              <label>Phone</label>
-              
-              <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label>Mail</label>
-              
-         
-            
-        
-            
-              <h1>Section 2</h1>
-              <p>Input 1</p>
-              <input type="text" id="input1" />
-              <p>Input 2</p>
-              <input type="text" id="input2" />
-              
-              <p>Radio Inputs</p>
-              <input type="radio" id="contactChoice1" name="contact" value="email" />
-              <label>Email</label>
-              
-              <input type="radio" id="contactChoice2" name="contact" value="phone" />
-              <label>Phone</label>
-              
-              <input type="radio" id="contactChoice3" name="contact" value="mail" />
-              <label>Mail</label>
-              
-            
-            
-            
-            <div>
-              <button type="submit">Submit</button>
+      <div>
+        <div className="container top">
+          <div className="row">
+            <div className="col-lg-12">
+              <h2 className="text-center">Shopping List</h2>
             </div>
-            
-            <p></p>
-            
-          </fieldset>
-	    </div>
+          </div>
+        </div>
+        <div className="container wb">
+          <div className="row">
+            <form onSubmit={this.createTodo}>
+              <div className="col-lg-12 input-group">
+                <input type="number"
+                  className="center-block"
+                  placeholder="Insert here…"
+                  value={this.state.todoText}
+                  onChange={this.updateTodoText}
+                />
+                <button className="btn btn-success center-block">Create</button>
+              </div>
+            </form>
+            <ul>
+              {this.state.todos.map((todo) => {
+                return (<li key={Math.floor(Math.random() * 10000) + 1}>{todo}</li>);
+              }
+              )}
+              {this.state.message ? <li>No search results.</li> : ''}
+            </ul>
+          </div>
+        </div>
+      </div>
     );
   }
+
 }
 
 export default Inputs;
