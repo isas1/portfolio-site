@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 //material-ui imports
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -13,10 +12,18 @@ import green from '@material-ui/core/colors/green';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    margin: 20
   },
-  paper: {
+  heading: {
     height: 140,
     width: '75%',
+    textAlign: 'center'
+  },
+  listItems: {
+    padding: theme.spacing.unit * 2,
+    height: 20,
+    width: '70%',
+    margin: 2,
     textAlign: 'center'
   },
   control: {
@@ -66,37 +73,36 @@ class Inputs extends Component {
         <Grid container className={classes.root} spacing={16}>
           <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
-              <Paper className={classes.paper}>
+              <Paper className={classes.heading}>
                 <h2 className="">Shopping List</h2>
 
                 <form onSubmit={this.createTodo}>
                   <div className="">
-                    <Input
+                    <TextField
                       classes={{
                         underline: classes.cssUnderline,
                       }}
                       id="custom-css-input"
+                      label="Type item here"
                       type="text"
-                      placeholder="Insert here…"
                       value={this.state.todoText}
                       onChange={this.updateTodoText}
                     />
-                    <button className="">Create</button>
+                    <button className="">Add</button>
                   </div>
                 </form>
               </Paper>
             </Grid>
             <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
-              <Paper className={classes.paper}>
-                <ul>
+              
+                
                   {this.state.todos.map((todo) => {
-                    return (<li key={Math.floor(Math.random() * 10000) + 1}>{todo}</li>);
+                    return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 10000) + 1}>{todo}</Paper>);
                   }
                   )}
                   {this.state.message ? <li>No search results.</li> : ''}
-                </ul>
-              </Paper>
+                
             </Grid>
             </Grid>
           </Grid>
