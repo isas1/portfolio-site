@@ -5,6 +5,9 @@ import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 // Styles
@@ -18,24 +21,46 @@ const styles = theme => ({
     height: 140,
     width: '90%',
     textAlign: 'center',
-    marginBottom: 20
+    margin: theme.spacing.unit,
+    padding: theme.spacing.unit * 2,
   },
   listItems: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    height: 20,
-    width: '90%',
-    marginTop: 5,
-    textAlign: 'center'
+    margin: theme.spacing.unit,
+    padding: theme.spacing.unit * 2,
+    width: '90%'
+  },
+  btn: {
+    marginLeft: 5
+  },
+  avatar: {
+    backgroundColor: getRandomTheme()
+    //backgroundColor: purple[500]
   }
 });
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+  },
+});
+
+
+function getRandomTheme () {
+  const colours = [purple[500], green[500]]
+  const randomColourIndex = Math.floor(
+    (Math.random() * (colours.length))
+  );
+  alert(randomColourIndex)
+  alert(colours[randomColourIndex])
+  return colours[randomColourIndex];
+}
 
 
 class Inputs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todosInit: ['100 kg Meat', 'Ham', 'Cheese'],
+      todosInit: ['This', 'is', 'my', 'list', 'app'],
       todos: [],
       todoText: '',
       message: false
@@ -69,40 +94,47 @@ class Inputs extends Component {
 
     return (
       <div>
-        <Grid container className={classes.root}/>
+        <Grid container className={classes.root}>
           <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
               <Paper className={classes.heading}>
                 <h2 className="">Shopping List</h2>
 
                 <form onSubmit={this.createTodo}>
-                  <div className="">
+                  <div>
+
+                    {/*match color scheme*/}
+                    <MuiThemeProvider theme={theme}>
                     <TextField
-                      classes={{
-                        underline: classes.cssUnderline,
-                      }}
+                      className="inputBox"
                       id="custom-css-input"
                       label="Type item here"
                       type="text"
                       value={this.state.todoText}
                       onChange={this.updateTodoText}
                     />
-                    <button className="">Add</button>
+                    <Button variant="outlined" color="primary" className={classes.btn} type="submit">Add</Button>
+                    </MuiThemeProvider>
                   </div>
                 </form>
               </Paper>
             </Grid>
             <Grid item xs={12}>
-            <Grid container justify="center" alignItems="center">
-              
-                
-                  {this.state.todos.map((todo) => {
-                    return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 10000) + 1}>{todo}</Paper>);
-                  }
-                  )}
-                  {this.state.message ? <li>No search results.</li> : ''}
-                
-            </Grid>
+              <Grid container justify="center" alignItems="center">
+                {this.state.todos.map((todo, index) => {
+                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 10000) + 1}>
+                    <Grid container wrap="nowrap" spacing={16}>
+                        <Avatar className={classes.avatar}>{index+1}</Avatar>
+                      <Grid item xs zeroMinWidth>
+                        <Typography noWrap>{todo}</Typography>
+                      </Grid>
+                    </Grid>
+                  </Paper>);
+                }
+                )}
+                {this.state.message ? <li>No search results.</li> : ''}
+
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
