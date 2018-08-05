@@ -12,23 +12,22 @@ import green from '@material-ui/core/colors/green';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    margin: 20
+    marginTop: 20
   },
   heading: {
     height: 140,
-    width: '75%',
-    textAlign: 'center'
+    width: '90%',
+    textAlign: 'center',
+    marginBottom: 20
   },
   listItems: {
-    padding: theme.spacing.unit * 2,
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
     height: 20,
-    width: '70%',
-    margin: 2,
+    width: '90%',
+    marginTop: 5,
     textAlign: 'center'
-  },
-  control: {
-    padding: theme.spacing.unit * 2,
-  },
+  }
 });
 
 
@@ -70,7 +69,7 @@ class Inputs extends Component {
 
     return (
       <div>
-        <Grid container className={classes.root} spacing={16}>
+        <Grid container className={classes.root}/>
           <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
               <Paper className={classes.heading}>
