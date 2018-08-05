@@ -3,69 +3,24 @@ import React, { Component } from 'react';
 //material-ui imports
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 // Styles
 
 const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
+  root: {
+    flexGrow: 1,
   },
-  margin: {
-    margin: theme.spacing.unit,
+  paper: {
+    height: 140,
+    width: '75%',
+    textAlign: 'center'
   },
-  cssLabel: {
-    '&$cssFocused': {
-      color: purple[500],
-    },
-  },
-  cssFocused: {},
-  cssUnderline: {
-    '&:after': {
-      borderBottomColor: purple[500],
-    },
-  },
-  bootstrapRoot: {
-    padding: 0,
-    'label + &': {
-      marginTop: theme.spacing.unit * 3,
-    },
-  },
-  bootstrapInput: {
-    borderRadius: 4,
-    backgroundColor: theme.palette.common.white,
-    border: '1px solid #ced4da',
-    fontSize: 16,
-    padding: '10px 12px',
-    width: 'calc(100% - 24px)',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
-  },
-  bootstrapFormLabel: {
-    fontSize: 18,
-  },
-});
-
-const theme = createMuiTheme({
-  palette: {
-    primary: green,
+  control: {
+    padding: theme.spacing.unit * 2,
   },
 });
 
@@ -108,39 +63,44 @@ class Inputs extends Component {
 
     return (
       <div>
-        <div className="">
-          <div className="">
-            <div className="">
-              <h2 className="">Shopping List</h2>
-            </div>
-          </div>
-        </div>
-        <div className="">
-          <div className="">
-            <form onSubmit={this.createTodo}>
-              <div className="">
-                <Input
-                  classes={{
-                    underline: classes.cssUnderline,
-                  }}
-                  id="custom-css-input"
-                  type="number"
-                  placeholder="Insert here…"
-                  value={this.state.todoText}
-                  onChange={this.updateTodoText}
-                />
-                <button className="">Create</button>
-              </div>
-            </form>
-            <ul>
-              {this.state.todos.map((todo) => {
-                return (<li key={Math.floor(Math.random() * 10000) + 1}>{todo}</li>);
-              }
-              )}
-              {this.state.message ? <li>No search results.</li> : ''}
-            </ul>
-          </div>
-        </div>
+        <Grid container className={classes.root} spacing={16}>
+          <Grid item xs={12}>
+            <Grid container justify="center" alignItems="center">
+              <Paper className={classes.paper}>
+                <h2 className="">Shopping List</h2>
+
+                <form onSubmit={this.createTodo}>
+                  <div className="">
+                    <Input
+                      classes={{
+                        underline: classes.cssUnderline,
+                      }}
+                      id="custom-css-input"
+                      type="text"
+                      placeholder="Insert here…"
+                      value={this.state.todoText}
+                      onChange={this.updateTodoText}
+                    />
+                    <button className="">Create</button>
+                  </div>
+                </form>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+            <Grid container justify="center" alignItems="center">
+              <Paper className={classes.paper}>
+                <ul>
+                  {this.state.todos.map((todo) => {
+                    return (<li key={Math.floor(Math.random() * 10000) + 1}>{todo}</li>);
+                  }
+                  )}
+                  {this.state.message ? <li>No search results.</li> : ''}
+                </ul>
+              </Paper>
+            </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </div>
     );
   }
