@@ -50,8 +50,6 @@ function getRandomTheme () {
   const randomColourIndex = Math.floor(
     (Math.random() * (colours.length))
   );
-  alert(randomColourIndex)
-  alert(colours[randomColourIndex])
   return colours[randomColourIndex];
 }
 
@@ -60,7 +58,7 @@ class Inputs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todosInit: ['This', 'is', 'my', 'list', 'app'],
+      todosInit: ['List', 'items', 'here'],
       todos: [],
       todoText: '',
       message: false
@@ -98,7 +96,7 @@ class Inputs extends Component {
           <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
               <Paper className={classes.heading}>
-                <h2 className="">Shopping List</h2>
+                <h2>Things to do</h2>
 
                 <form onSubmit={this.createTodo}>
                   <div>

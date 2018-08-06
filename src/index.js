@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import Inputs from './Inputs.jsx';
+//components
+import App from './App.js';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Inputs />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
