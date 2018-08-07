@@ -42,7 +42,7 @@ const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <p>Inputs page</p>,
+    sidebar: () => <Inputs />,
     main: () => <h2>Home</h2>
   },
   {
@@ -83,7 +83,9 @@ class NavBar extends React.Component {
     const open = Boolean(anchorEl);
 
     return (
+      <Router>
       <div className={classes.root}>
+      
         <AppBar className={classes.navOverride} position='static'>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -92,7 +94,7 @@ class NavBar extends React.Component {
             <Typography variant='title' color='inherit' className={classes.flex}> Generic Navbar
             </Typography>
 
-            <Router>
+            
               <div style={{ display: "flex" }}>
                 <IconButton color='inherit'>
                   <Link to="/"><ThreeDRotationIcon></ThreeDRotationIcon></Link>
@@ -101,7 +103,7 @@ class NavBar extends React.Component {
                   <Link to="/page1"><DeleteOutlinedIcon></DeleteOutlinedIcon></Link>
                 </IconButton>
               </div>
-            </Router>
+            
 
 
             <div>
@@ -133,7 +135,9 @@ class NavBar extends React.Component {
             </div>
           </Toolbar>
         </AppBar>
-        <Router>
+
+        
+        
           <div>
 
             {/* Switching to page 1 but not rendering page 1 */}
@@ -155,8 +159,9 @@ class NavBar extends React.Component {
               
             ))}
           </div>
-        </Router>
+        
       </div>
+      </Router>
     )
   }
 
