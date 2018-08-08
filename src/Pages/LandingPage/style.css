@@ -1,0 +1,42 @@
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+.landing-page main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.25rem 1.5rem 1rem;
+  text-align: center;
+}
+.landing-page main .intro-wrapper {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.landing-page main .intro-wrapper > .intro-name {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 4rem;
+  padding-bottom: 1rem;
+}
+.landing-page main .intro-wrapper > .tagline {
+  font-size: 1.375rem;
+  margin: 1.5rem 0;
+  font-weight: 300;
+}
+.landing-page main .browser-notes {
+  font-size: 0.75rem;
+}
+.landing-page main .browser-notes span {
+  border-width: 1px;
+  border-style: solid;
+  padding: 0.125rem 0.5rem;
+}
