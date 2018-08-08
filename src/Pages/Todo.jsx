@@ -8,14 +8,31 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
-// Styles
 
+//material-ui colours - consider moving with refactor
+import amber from '@material-ui/core/colors/amber';
+import blue from '@material-ui/core/colors/blue';
+import brown from '@material-ui/core/colors/brown';
+import green from '@material-ui/core/colors/green';
+import grey from '@material-ui/core/colors/grey';
+import lime from '@material-ui/core/colors/lime';
+import purple from '@material-ui/core/colors/purple';
+
+
+
+// Styles - consider moving with refactor
 const styles = theme => ({
   root: {
     flexGrow: 1,
     marginTop: 20
+  },
+  avatar: {
+    backgroundColor: getRandomTheme(),
+    color: '#666'
+    //backgroundColor: purple[500]
+  },
+  btn: {
+    marginLeft: 5
   },
   heading: {
     height: 140,
@@ -28,13 +45,6 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2,
     width: '90%'
-  },
-  btn: {
-    marginLeft: 5
-  },
-  avatar: {
-    backgroundColor: getRandomTheme()
-    //backgroundColor: purple[500]
   }
 });
 
@@ -46,7 +56,7 @@ const theme = createMuiTheme({
 
 
 function getRandomTheme () {
-  const colours = [purple[500], green[500]]
+  const colours = [amber[50], blue[50], brown[50], green[50], grey[50], lime[50], purple[50]]
   const randomColourIndex = Math.floor(
     (Math.random() * (colours.length))
   );
@@ -120,7 +130,7 @@ class Inputs extends Component {
             <Grid item xs={12}>
               <Grid container justify="center" alignItems="center">
                 {this.state.todos.map((todo, index) => {
-                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 10000) + 1}>
+                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
                     <Grid container wrap="nowrap" spacing={16}>
                         <Avatar className={classes.avatar}>{index+1}</Avatar>
                       <Grid item xs zeroMinWidth>

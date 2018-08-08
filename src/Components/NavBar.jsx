@@ -1,23 +1,31 @@
 import React from 'react';
 
-//material-ui components 
-import AccountCircle from '@material-ui/icons/AccountCircle';
+//pages
+import LandingPage from '../Pages/LandingPage';
+import SplashAPI from '../Pages/SplashAPI/SpashAPI';
+import Todo from '../Pages/Todo';
+
+//material-ui
+
+//components
 
 import AppBar from '@material-ui/core/AppBar'
-import ArrowForward from '@material-ui/icons/ArrowForwardRounded';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import IconButton from '@material-ui/core/IconButton';
-import LandingPage from '../Pages/LandingPage';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ThreeDRotationIcon from '@material-ui/icons/ThreeDRotation';
-import Todo from '../Pages/Todo';
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography';
-import { purple300 } from 'material-ui/styles/colors';
+//import MenuItem from '@material-ui/core/MenuItem';
+import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '../../node_modules/@material-ui/core';
+
+//icons and colours
+
+import ArrowForward from '@material-ui/icons/ArrowForwardRounded';
+import FormatListNumbered from '@material-ui/icons/FormatListNumberedRounded';
+import Home from '@material-ui/icons/HomeRounded';
+//import Menu from '@material-ui/core/Menu';
+//import MenuIcon from '@material-ui/icons/Menu';
+import MonochromePhoto from '@material-ui/icons/MonochromePhotosRounded';
+
+import { purple300 } from 'material-ui/styles/colors';
 
 // Navigation bar styles
 const styles = {
@@ -29,7 +37,7 @@ const styles = {
     flexGrow: 1,
   },
   navOverride: {
-    //fixed cololur
+    // fixed cololur - consider changing with theme
     backgroundColor: purple300
   },
   menuButton: {
@@ -50,14 +58,14 @@ const routes = [
     main: () => <h2>Home</h2>
   },
   {
-    path: "/page1",
+    path: "/todo",
     sidebar: () => <Todo />,
-    main: () => <h2>Bubblegum</h2>
+    main: () => <h2>Todo</h2>
   },
   {
-    path: "/shoelaces",
-    sidebar: () => <div>shoelaces!</div>,
-    main: () => <h2>Shoelaces</h2>
+    path: "/pictures",
+    sidebar: () => <SplashAPI />,
+    main: () => <h2>SplashAPI</h2>
   }
 ];
 
@@ -79,27 +87,30 @@ class NavBar extends React.Component {
   render() {
 
     const { classes } = this.props;
-    const { anchorEl } = this.state;
-    const open = Boolean(anchorEl);
+    //const { anchorEl } = this.state;
+    //const open = Boolean(anchorEl);
 
     return (
       <Router>
         <div className={classes.root}>
           <AppBar className={classes.navOverride} position='static'>
             <Toolbar>
-              
-              <Typography variant='title' color='inherit' className={classes.flex}> Interact <ArrowForward />
-              </Typography>
+              <ArrowForward />
+              <div className={classes.flex}></div>
 
               <div style={{ display: "flex" }}>
                 <IconButton color='inherit'>
-                  <Link to="/"><ThreeDRotationIcon></ThreeDRotationIcon></Link>
+                  <Link to="/"><Home></Home></Link>
                 </IconButton>
                 <IconButton color='inherit'>
-                  <Link to="/page1"><DeleteOutlinedIcon></DeleteOutlinedIcon></Link>
+                  <Link to="/todo"><FormatListNumbered></FormatListNumbered></Link>
+                </IconButton>
+                <IconButton color='inherit'>
+                  <Link to="/pictures"><MonochromePhoto></MonochromePhoto></Link>
                 </IconButton>
               </div>
 
+              {/*
               <div>
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
@@ -127,6 +138,7 @@ class NavBar extends React.Component {
                   <MenuItem onClick={this.handleClose}>My account</MenuItem>
                 </Menu>
               </div>
+              */}
             </Toolbar>
           </AppBar>
 
