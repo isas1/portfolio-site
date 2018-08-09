@@ -18,7 +18,6 @@ import { withStyles } from '../../node_modules/@material-ui/core';
 
 //icons and colours
 
-import ArrowForward from '@material-ui/icons/ArrowForwardRounded';
 import FormatListNumbered from '@material-ui/icons/FormatListNumberedRounded';
 import Home from '@material-ui/icons/HomeRounded';
 //import Menu from '@material-ui/core/Menu';
@@ -95,7 +94,7 @@ class NavBar extends React.Component {
         <div className={classes.root}>
           <AppBar className={classes.navOverride} position='static'>
             <Toolbar>
-              <ArrowForward />
+              
               <div className={classes.flex}></div>
 
               <div style={{ display: "flex" }}>
