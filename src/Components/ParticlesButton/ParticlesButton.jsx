@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ParticleEffectButton from 'react-particle-effect-button'
 
 import './styles.css';
-import { Component } from '../../../node_modules/@types/react';
 
 class ParticlesButton extends Component {
 

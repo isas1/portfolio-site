@@ -1,9 +1,10 @@
 import React from 'react';
 //import creds from './creds.js';
 import ImgList from '../../Components/ImgList/ImgList';
-import './style.css';
-import { Input } from '../../../node_modules/@material-ui/core';
 
+import ParticlesButton from '../../Components/ParticlesButton/ParticlesButton'
+import { Input } from '../../../node_modules/@material-ui/core';
+import './style.css';
 class SpashAPIPage extends React.Component {
 
   constructor() {
@@ -33,6 +34,7 @@ class SpashAPIPage extends React.Component {
         <div className="main-header">
           <div className="inner">
             <h1 className="main-title"><Input placeholder="What would you like to see?"/></h1>
+            <ParticlesButton />
           </div>
         </div>
         <div className="main-content">
