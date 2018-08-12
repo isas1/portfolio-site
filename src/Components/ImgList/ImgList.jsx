@@ -8,7 +8,8 @@ import './styles.css';
 const styles =
 {
 	grid: {
-		padding: 8
+		padding: 8,
+		width: '90%'
 	}
 }
 const ImgList = props => {
@@ -23,9 +24,6 @@ const ImgList = props => {
 			container
 			className={classes.grid}
 			spacing={16}
-			alignItems='flex-start'
-			direction='column'
-			justify='center'
 		>
 			{imgs}
 		</Grid>

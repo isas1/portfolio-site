@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import ImgList from '../../Components/ImgList/ImgList';
-import { Button, Input } from '../../../node_modules/@material-ui/core';
+import { Button, TextField } from '../../../node_modules/@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 import './style.css';
@@ -10,10 +10,13 @@ const styles = theme => ({
   root: {
     flexgrow: 1
   },
-  heading: {
+  btn: {
+    marginLeft: 8
+  },
+  paper: {
     width: '90%',
     margin: theme.spacing.unit,
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2
   }
 })
 class SpashAPIPage extends React.Component {
@@ -53,12 +56,16 @@ class SpashAPIPage extends React.Component {
                 direction='row'
                 justify='center'
               >
-                <Paper className={classes.heading}>
-                  <Input placeholder="What would you like to see?" />
-                  <Button>Search</Button>
+                <Paper className={classes.paper}>
+                  <TextField label="Search" type="search" margin="normal" />
+                  <Button variant="outlined" color="primary" className={classes.btn}>Go</Button>
                 </Paper>
               </Grid>
-              <ImgList data={this.state.imgs} />
+              <Grid container justify='center'>
+                <Paper className={classes.paper}>
+                  <ImgList data={this.state.imgs} />
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
         </div>

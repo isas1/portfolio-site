@@ -1,19 +1,26 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '../../../node_modules/@material-ui/core';
 
-const Img = props => (
+const styles = {
+  img: {
+    width: 100,
+    height: 100
+  }
+}
 
-  <Paper>
-    <img src={props.url} alt=""/>
-  </Paper>
+const Img = props => {
+  const { classes } = props;
 
+  return (
 
+    <img className={classes.img} src={props.url} alt="" />
+  )
   /*
   <li className="img-wrap">
     <img src={props.url} alt=""/>
   </li>
   */
-  
-);
 
-export default Img;
+};
+
+export default withStyles(styles)(Img);

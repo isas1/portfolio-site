@@ -55,7 +55,7 @@ const theme = createMuiTheme({
 });
 
 
-function getRandomTheme () {
+function getRandomTheme() {
   const colours = [amber[50], blue[50], brown[50], green[50], grey[50], lime[50], purple[50]]
   const randomColourIndex = Math.floor(
     (Math.random() * (colours.length))
@@ -113,15 +113,15 @@ class Inputs extends Component {
 
                     {/*match color scheme*/}
                     <MuiThemeProvider theme={theme}>
-                    <TextField
-                      className="inputBox"
-                      id="custom-css-input"
-                      label="Type item here"
-                      type="text"
-                      value={this.state.todoText}
-                      onChange={this.updateTodoText}
-                    />
-                    <Button variant="outlined" color="primary" className={classes.btn} type="submit">Add</Button>
+                      <TextField
+                        className="inputBox"
+                        id="custom-css-input"
+                        label="Type item here"
+                        type="text"
+                        value={this.state.todoText}
+                        onChange={this.updateTodoText}
+                      />
+                      <Button variant="outlined" color="primary" className={classes.btn} type="submit">Add</Button>
                     </MuiThemeProvider>
                   </div>
                 </form>
@@ -132,7 +132,7 @@ class Inputs extends Component {
                 {this.state.todos.map((todo, index) => {
                   return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
                     <Grid container wrap="nowrap" spacing={16}>
-                        <Avatar className={classes.avatar}>{index+1}</Avatar>
+                      <Avatar className={classes.avatar}>{index + 1}</Avatar>
                       <Grid item xs zeroMinWidth>
                         <Typography noWrap>{todo}</Typography>
                       </Grid>
