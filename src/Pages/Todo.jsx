@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ParticleEffectButton from 'react-particle-effect-button';
+
 //material-ui imports
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -56,7 +58,7 @@ const theme = createMuiTheme({
 
 
 function getRandomTheme() {
-  const colours = [amber[50], blue[50], brown[50], green[50], grey[50], lime[50], purple[50]]
+  const colours = [purple[50]]
   const randomColourIndex = Math.floor(
     (Math.random() * (colours.length))
   );
@@ -71,10 +73,12 @@ class Inputs extends Component {
       todosInit: ['List', 'items', 'here'],
       todos: [],
       todoText: '',
-      message: false
+      message: false,
+      hidden: false
     };
     this.updateTodoText = this.updateTodoText.bind(this);
     this.createTodo = this.createTodo.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -96,6 +100,13 @@ class Inputs extends Component {
       todoText: '',
     });
   }
+
+  handleClick() {
+    this.setState({
+      hidden: true
+    });
+  }
+
   render() {
 
     const { classes } = this.props;
@@ -121,35 +132,41 @@ class Inputs extends Component {
                         value={this.state.todoText}
                         onChange={this.updateTodoText}
                       />
-                      <Button variant="outlined" color="primary" className={classes.btn} type="submit">Add</Button>
+
+                      <ParticleEffectButton
+                        color='#121019'
+                        hidden={this.state.hidden}
+                      >
+                        <Button variant="outlined" color="primary" className={classes.btn} onClick={this.handleClick} type="submit">Add</Button>
+                      </ParticleEffectButton>
                     </MuiThemeProvider>
                   </div>
                 </form>
               </Paper>
             </Grid>
-            <Grid item xs={12}>
-              <Grid container justify="center" alignItems="center">
-                {this.state.todos.map((todo, index) => {
-                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
-                    <Grid container wrap="nowrap" spacing={16}>
-                      <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                      <Grid item xs zeroMinWidth>
-                        <Typography noWrap>{todo}</Typography>
+              <Grid item xs={12}>
+                <Grid container justify="center" alignItems="center">
+                  {this.state.todos.map((todo, index) => {
+                    return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+                      <Grid container wrap="nowrap" spacing={16}>
+                        <Avatar className={classes.avatar}>{index + 1}</Avatar>
+                        <Grid item xs zeroMinWidth>
+                          <Typography noWrap>{todo}</Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>);
-                }
-                )}
-                {this.state.message ? <li>No search results.</li> : ''}
+                    </Paper>);
+                  }
+                  )}
+                  {this.state.message ? <li>No search results.</li> : ''}
 
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
       </div>
-    );
-  }
-
-}
-
-export default withStyles(styles)(Inputs);
+        );
+      }
+    
+    }
+    
+    export default withStyles(styles)(Inputs);
