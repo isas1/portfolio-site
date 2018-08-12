@@ -1,10 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-//import { Button, TextField } from '../../../node_modules/@material-ui/core';
+import { Button, TextField } from '../../../node_modules/@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import ImgList from '../../Components/ImgList/ImgList';
 import Paper from '@material-ui/core/Paper';
-import SearchForm from '../../Components/ImgList/SearchForm';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 import './style.css';
 
@@ -32,9 +31,6 @@ class SpashAPIPage extends React.Component {
   }
 
   componentDidMount() {
-    this.performSearch();
-
-    {/* 
     const APP_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
 
     fetch('https://api.unsplash.com/photos/?client_id=' + APP_ID)
@@ -45,25 +41,7 @@ class SpashAPIPage extends React.Component {
       .catch(err => {
         console.log('Error happened during fetching!', err);
       });
-    */}
-
   }
-
-  performSearch = (query = 'drink') => {
-
-    const APP_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8';
-    
-    axios
-      .get(
-        `https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=${APP_ID}`
-      )
-      .then(data => {
-        this.setState({ imgs: data.data.results, loadingState: false });
-      })
-      .catch(err => {
-        console.log('Error happened during fetching!', err);
-      });
-  };
 
   render() {
     const { classes } = this.props;
@@ -81,7 +59,8 @@ class SpashAPIPage extends React.Component {
                 justify='center'
               >
                 <Paper className={classes.paper}>
-                  <SearchForm />
+                  <TextField label="Search" type="search" margin="normal" />
+                  <Button variant="outlined" color="primary" className={classes.btn}>Go</Button>
                 </Paper>
               </Grid>
               <Grid container justify='center'>
