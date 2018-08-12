@@ -29,11 +29,11 @@ import { purple300 } from 'material-ui/styles/colors';
 // Navigation bar styles
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   flex: {
     // Allows next icon/elemend in Navbar to 'float right'
-    flexGrow: 1,
+    flexGrow: 1
   },
   navOverride: {
     // fixed cololur - consider changing with theme
