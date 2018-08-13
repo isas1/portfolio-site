@@ -1,12 +1,12 @@
 import React from 'react';
-import axios from 'axios';
-//import { Button, TextField } from '../../../node_modules/@material-ui/core';
+import { Button, TextField } from '../../../node_modules/@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import ImgList from '../../Components/ImgList/ImgList';
 import Paper from '@material-ui/core/Paper';
-import SearchForm from '../../Components/ImgList/SearchForm';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 import './style.css';
+
+const CLIENT_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
+const endpoint = 'https://api.unsplash.com/search/photos'
 
 const styles = theme => ({
   root: {
@@ -21,49 +21,43 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   }
 })
+
 class SpashAPIPage extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    
     this.state = {
-      imgs: [],
+      images: [],
       loadingState: true
     };
+
+    this.query = '';
+    this.trackQueryValue = this.trackQueryValue.bind(this);
+    this.search = this.search.bind(this);
   }
 
-  componentDidMount() {
-    this.performSearch();
-
-    {/* 
-    const APP_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
-
-    fetch('https://api.unsplash.com/photos/?client_id=' + APP_ID)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({ imgs: data });
+  search() {
+    fetch(`${endpoint}?query=${this.query}&client_id=${CLIENT_ID}`)
+      .then(response=>{
+        return response.json()
+      }).then(jsonResponse=>{
+        console.log(jsonResponse.results);
+        this.setState({
+          images: jsonResponse.results
+        })
       })
-      .catch(err => {
-        console.log('Error happened during fetching!', err);
-      });
-    */}
-
   }
 
-  performSearch = (query = 'drink') => {
+  trackQueryValue (ev) {
+    this.query = ev.target.value;
+  }
 
-    const APP_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8';
-    
-    axios
-      .get(
-        `https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=${APP_ID}`
-      )
-      .then(data => {
-        this.setState({ imgs: data.data.results, loadingState: false });
-      })
-      .catch(err => {
-        console.log('Error happened during fetching!', err);
-      });
-  };
+  images(){
+    return this.state.images.map(image=>{
+      return <img src={image.urls.thumb} />
+    })
+  }
 
   render() {
     const { classes } = this.props;
@@ -81,12 +75,9 @@ class SpashAPIPage extends React.Component {
                 justify='center'
               >
                 <Paper className={classes.paper}>
-                  <SearchForm />
-                </Paper>
-              </Grid>
-              <Grid container justify='center'>
-                <Paper className={classes.paper}>
-                  <ImgList data={this.state.imgs} />
+                  <TextField type="text" onChange={this.trackQueryValue}/>
+                  <Button theme='primary' onClick={this.search}> Search</Button>
+                  <div>{this.images()}</div>
                 </Paper>
               </Grid>
             </Grid>

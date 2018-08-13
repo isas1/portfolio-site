@@ -19,6 +19,7 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import lime from '@material-ui/core/colors/lime';
 import purple from '@material-ui/core/colors/purple';
+import { grey50 } from 'material-ui/styles/colors';
 
 
 
@@ -29,7 +30,7 @@ const styles = theme => ({
     marginTop: 20
   },
   avatar: {
-    backgroundColor: getRandomTheme(),
+    backgroundColor: getRandomColour(),
     color: '#666'
     //backgroundColor: purple[500]
   },
@@ -57,8 +58,8 @@ const theme = createMuiTheme({
 });
 
 
-function getRandomTheme() {
-  const colours = [purple[50]]
+function getRandomColour() {
+  const colours = [purple[50], grey[50]]
   const randomColourIndex = Math.floor(
     (Math.random() * (colours.length))
   );
