@@ -1,6 +1,9 @@
-import React from 'react';
-import { Button, TextField } from '../../../node_modules/@material-ui/core';
+import React, { Fragment } from 'react';
+
+import Search from '@material-ui/icons/Search';
+import { Button, TextField, Input } from '../../../node_modules/@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 import './style.css';
@@ -10,15 +13,21 @@ const endpoint = 'https://api.unsplash.com/search/photos'
 
 const styles = theme => ({
   root: {
-    flexgrow: 1
+    flexgrow: 1,
+    marginTop: 20
   },
   btn: {
     marginLeft: 8
   },
-  paper: {
-    width: '90%',
+  image: {
+    padding: theme.spacing.unit * 2
+  },
+  paperBg: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2
+  },
+  search: {
+    padding: 10
   }
 })
 
@@ -26,7 +35,7 @@ class SpashAPIPage extends React.Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       images: [],
       loadingState: true
@@ -39,9 +48,9 @@ class SpashAPIPage extends React.Component {
 
   search() {
     fetch(`${endpoint}?query=${this.query}&client_id=${CLIENT_ID}`)
-      .then(response=>{
+      .then(response => {
         return response.json()
-      }).then(jsonResponse=>{
+      }).then(jsonResponse => {
         console.log(jsonResponse.results);
         this.setState({
           images: jsonResponse.results
@@ -49,13 +58,19 @@ class SpashAPIPage extends React.Component {
       })
   }
 
-  trackQueryValue (ev) {
+  trackQueryValue(ev) {
     this.query = ev.target.value;
   }
 
-  images(){
-    return this.state.images.map(image=>{
-      return <img src={image.urls.thumb} />
+  images() {
+    return this.state.images.map(image => {
+      return <Grid item>
+        <Paper className={this.props.image}>
+
+          <img src={image.urls.thumb} alt={image.description} key={image.id} />
+
+        </Paper>
+      </Grid>
     })
   }
 
@@ -63,26 +78,29 @@ class SpashAPIPage extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className={classes.root}>
         {/*Photos in here*/}
-        <div className={classes.root}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Grid
-                container
-                alignItems='stretch'
-                direction='row'
-                justify='center'
-              >
-                <Paper className={classes.paper}>
-                  <TextField type="text" onChange={this.trackQueryValue}/>
-                  <Button theme='primary' onClick={this.search}> Search</Button>
-                  <div>{this.images()}</div>
-                </Paper>
-              </Grid>
+
+        <Paper className={classes.paperBg}>
+          <Grid container spacing={24}>
+            <Grid container className={classes.search} xs={12}>
+              <Input
+                type="text"
+                onChange={this.trackQueryValue}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                } />
+              <Button className={classes.btn} theme='primary' onClick={this.search}> Find photos</Button>
             </Grid>
+            <Grid container spacing={16} justify='space-evenly'>
+              {this.images()}
+            </Grid>
+
           </Grid>
-        </div>
+        </Paper>
+
 
 
       </div>
