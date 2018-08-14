@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 
-import Search from '@material-ui/icons/Search';
+//material-ui
+import { withStyles } from '../../../node_modules/@material-ui/core';
 import { Button, TextField, Input } from '../../../node_modules/@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '../../../node_modules/@material-ui/core';
-import './style.css';
+import Search from '@material-ui/icons/Search';
 
 const CLIENT_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
 const endpoint = 'https://api.unsplash.com/search/photos'
@@ -82,7 +82,8 @@ class SpashAPIPage extends React.Component {
         {/*Photos in here*/}
 
         <Paper className={classes.paperBg}>
-          <Grid container spacing={24}>
+          <Grid container spacing={24} justify='center' alignItems='center'>
+            <h2>Photo finder</h2>
             <Grid container className={classes.search} xs={12}>
               <Input
                 type="text"
@@ -91,8 +92,9 @@ class SpashAPIPage extends React.Component {
                   <InputAdornment position="start">
                     <Search />
                   </InputAdornment>
-                } />
-              <Button className={classes.btn} theme='primary' onClick={this.search}> Find photos</Button>
+                }
+              />
+              <Button className={classes.btn} theme='secondary' onClick={this.search}>Go</Button>
             </Grid>
             <Grid container spacing={16} justify='space-evenly'>
               {this.images()}

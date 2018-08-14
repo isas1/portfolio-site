@@ -4,11 +4,14 @@ import ParticleEffectButton from 'react-particle-effect-button';
 
 //material-ui imports
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+import Add from '@material-ui/icons/AddCircleOutline';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 //material-ui colours - consider moving with refactor
@@ -35,7 +38,7 @@ const styles = theme => ({
     //backgroundColor: purple[500]
   },
   btn: {
-    marginLeft: 5
+    //marginLeft: 5
   },
   heading: {
     height: 140,
@@ -118,56 +121,60 @@ class Inputs extends Component {
           <Grid item xs={12}>
             <Grid container justify="center" alignItems="center">
               <Paper className={classes.heading}>
-                <h2>Things to do</h2>
+                <h2>Todo</h2>
 
                 <form onSubmit={this.createTodo}>
                   <div>
 
                     {/*match color scheme*/}
                     <MuiThemeProvider theme={theme}>
-                      <TextField
-                        className="inputBox"
-                        id="custom-css-input"
-                        label="Type item here"
-                        type="text"
-                        value={this.state.todoText}
-                        onChange={this.updateTodoText}
-                      />
+                      <Grid container spacing={8} alignItems="flex-end" justify='center'>
+                        <Grid item>
+                          <Add />
+                        </Grid>
+                        <Grid item alignContent='baseline'>
+                          <TextField
+                            className="inputBox"
+                            id="custom-css-input"
+                            label="Type item here"
+                            type="text"
+                            value={this.state.todoText}
+                            onChange={this.updateTodoText}
+                          />
+                            <Button color="primary" className={classes.btn} onClick={this.handleClick} type="submit">Add</Button>
+                         
 
-                      <ParticleEffectButton
-                        color='#121019'
-                        hidden={this.state.hidden}
-                      >
-                        <Button variant="outlined" color="primary" className={classes.btn} onClick={this.handleClick} type="submit">Add</Button>
-                      </ParticleEffectButton>
+                        </Grid>
+                      </Grid>
+
                     </MuiThemeProvider>
                   </div>
                 </form>
               </Paper>
             </Grid>
-              <Grid item xs={12}>
-                <Grid container justify="center" alignItems="center">
-                  {this.state.todos.map((todo, index) => {
-                    return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
-                      <Grid container wrap="nowrap" spacing={16}>
-                        <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                        <Grid item xs zeroMinWidth>
-                          <Typography noWrap>{todo}</Typography>
-                        </Grid>
+            <Grid item xs={12}>
+              <Grid container justify="center" alignItems="center">
+                {this.state.todos.map((todo, index) => {
+                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+                    <Grid container wrap="nowrap" spacing={16}>
+                      <Avatar className={classes.avatar}>{index + 1}</Avatar>
+                      <Grid item xs zeroMinWidth>
+                        <Typography noWrap>{todo}</Typography>
                       </Grid>
-                    </Paper>);
-                  }
-                  )}
-                  {this.state.message ? <li>No search results.</li> : ''}
+                    </Grid>
+                  </Paper>);
+                }
+                )}
+                {this.state.message ? <li>No search results.</li> : ''}
 
-                </Grid>
               </Grid>
             </Grid>
           </Grid>
+        </Grid>
       </div>
-        );
-      }
-    
-    }
-    
-    export default withStyles(styles)(Inputs);
+    );
+  }
+
+}
+
+export default withStyles(styles)(Inputs);
