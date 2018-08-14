@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ParticleEffectButton from 'react-particle-effect-button';
+//import ParticleEffectButton from 'react-particle-effect-button';
 
 //material-ui imports
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -9,7 +9,6 @@ import Add from '@material-ui/icons/AddCircleOutline';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
@@ -29,8 +28,7 @@ import { grey50 } from 'material-ui/styles/colors';
 // Styles - consider moving with refactor
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    marginTop: 20
+    flexGrow: 1
   },
   avatar: {
     backgroundColor: getRandomColour(),
@@ -40,17 +38,13 @@ const styles = theme => ({
   btn: {
     //marginLeft: 5
   },
-  heading: {
-    height: 140,
-    width: '90%',
-    textAlign: 'center',
+  paperBg: {
     margin: theme.spacing.unit,
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing.unit * 2
   },
   listItems: {
     margin: theme.spacing.unit,
-    padding: theme.spacing.unit * 2,
-    width: '90%'
+    padding: theme.spacing.unit * 2
   }
 });
 
@@ -116,11 +110,8 @@ class Inputs extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
-        <Grid container className={classes.root}>
-          <Grid item xs={12}>
-            <Grid container justify="center" alignItems="center">
-              <Paper className={classes.heading}>
+      <div className={classes.root}>
+              <Paper className={classes.paperBg}>
                 <h2>Todo</h2>
 
                 <form onSubmit={this.createTodo}>
@@ -129,10 +120,11 @@ class Inputs extends Component {
                     {/*match color scheme*/}
                     <MuiThemeProvider theme={theme}>
                       <Grid container spacing={8} alignItems="flex-end" justify='center'>
+                        
                         <Grid item>
                           <Add />
                         </Grid>
-                        <Grid item alignContent='baseline'>
+                        <Grid item>
                           <TextField
                             className="inputBox"
                             id="custom-css-input"
@@ -142,23 +134,19 @@ class Inputs extends Component {
                             onChange={this.updateTodoText}
                           />
                             <Button color="primary" className={classes.btn} onClick={this.handleClick} type="submit">Add</Button>
-                         
-
                         </Grid>
+
                       </Grid>
 
                     </MuiThemeProvider>
                   </div>
                 </form>
               </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Grid container justify="center" alignItems="center">
                 {this.state.todos.map((todo, index) => {
                   return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
                     <Grid container wrap="nowrap" spacing={16}>
                       <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                      <Grid item xs zeroMinWidth>
+                      <Grid item xs={12} zeroMinWidth>
                         <Typography noWrap>{todo}</Typography>
                       </Grid>
                     </Grid>
@@ -167,10 +155,6 @@ class Inputs extends Component {
                 )}
                 {this.state.message ? <li>No search results.</li> : ''}
 
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
       </div>
     );
   }

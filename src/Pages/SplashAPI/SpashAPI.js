@@ -1,35 +1,38 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 //material-ui
-import { withStyles } from '../../../node_modules/@material-ui/core';
-import { Button, TextField, Input } from '../../../node_modules/@material-ui/core';
+import { Button, Input, TextField } from '../../../node_modules/@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import {withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
+
+import purple from '@material-ui/core/colors/purple';
 
 const CLIENT_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
 const endpoint = 'https://api.unsplash.com/search/photos'
 
 const styles = theme => ({
   root: {
-    flexgrow: 1,
-    marginTop: 20
-  },
-  btn: {
-    marginLeft: 8
+    flexgrow: 1
   },
   image: {
     padding: theme.spacing.unit * 2
   },
+  inputs: {
+    paddingBottom: theme.spacing.unit * 3
+  },
   paperBg: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2
-  },
-  search: {
-    padding: 10
   }
 })
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+  },
+});
 
 class SpashAPIPage extends React.Component {
 
@@ -80,29 +83,32 @@ class SpashAPIPage extends React.Component {
     return (
       <div className={classes.root}>
         {/*Photos in here*/}
-
+        <MuiThemeProvider theme={theme}>
         <Paper className={classes.paperBg}>
-          <Grid container spacing={24} justify='center' alignItems='center'>
-            <h2>Photo finder</h2>
-            <Grid container className={classes.search} xs={12}>
-              <Input
-                type="text"
-                onChange={this.trackQueryValue}
-                startAdornment={
-                  <InputAdornment position="start">
-                    <Search />
-                  </InputAdornment>
-                }
-              />
-              <Button className={classes.btn} theme='secondary' onClick={this.search}>Go</Button>
+        <h2>Photo finder</h2>
+            
+            {/* Input container */}
+            <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
+              <Grid item>
+                <Search />
+              </Grid>
+              <Grid item>
+                <TextField
+                  type="text"
+                  label="Type here"
+                  onChange={this.trackQueryValue}
+                />
+                <Button color='primary' onClick={this.search}>Go</Button>
+              </Grid>
             </Grid>
+
+            {/* Output container for images */}
             <Grid container spacing={16} justify='space-evenly'>
               {this.images()}
             </Grid>
 
-          </Grid>
         </Paper>
-
+</MuiThemeProvider>
 
 
       </div>
