@@ -9,23 +9,36 @@ import yellow from '@material-ui/core/colors/yellow';
 
 // create individual themes
 
-
 // create an array of themes
-const themes = {
-  theme1: [purple, green],
-  theme2: [grey, yellow]
-}
-
-// create a starting theme
-const theme = createMuiTheme({
-  palette: {
-    primary: themes.theme1[0],
-    secondary: themes.theme1[1]
+const allThemes = 
+[
+  {
+    name: 'theme1',
+    primary: purple,
+    secondary: green
   },
-});
+  {
+    name: 'theme2',
+    primary: grey,
+    secondary: yellow
+  }
+]
 
 // create a function to choose a random theme from an array of themes
-
+const getTheme = () => {
+  const randomThemeIndex = Math.floor(
+    (Math.random() * (allThemes.length))
+  );
+  // create a starting theme
+  const currentTheme = createMuiTheme({
+    palette: {
+      primary: allThemes[randomThemeIndex].primary,
+      secondary: allThemes[randomThemeIndex].secondary
+    },
+  });
+  return currentTheme;
+}
+const theme = getTheme();
 
 // create a function to set the state of theme
 

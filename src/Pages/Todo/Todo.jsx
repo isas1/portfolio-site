@@ -14,14 +14,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 //material-ui colours - consider moving with refactor
-import amber from '@material-ui/core/colors/amber';
-import blue from '@material-ui/core/colors/blue';
-import brown from '@material-ui/core/colors/brown';
-import green from '@material-ui/core/colors/green';
+
 import grey from '@material-ui/core/colors/grey';
-import lime from '@material-ui/core/colors/lime';
 import purple from '@material-ui/core/colors/purple';
-import { grey50 } from 'material-ui/styles/colors';
 
 // Styles - consider moving with refactor
 const styles = theme => ({

@@ -13,7 +13,7 @@ import AppBar from '@material-ui/core/AppBar'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
-import { Button, withStyles, MuiThemeProvider } from '@material-ui/core';
+import { withStyles, MuiThemeProvider } from '@material-ui/core';
 
 //icons and colours
 
@@ -24,6 +24,7 @@ import MonochromePhoto from '@material-ui/icons/MonochromePhotosRounded';
 import styles from './styles';
 import theme from '../../Components/ThemeChanger/Themes';
 
+console.log(theme);
 //react-router-dom routes
 const routes = [
   {
