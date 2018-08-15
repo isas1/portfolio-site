@@ -23,8 +23,6 @@ import lime from '@material-ui/core/colors/lime';
 import purple from '@material-ui/core/colors/purple';
 import { grey50 } from 'material-ui/styles/colors';
 
-
-
 // Styles - consider moving with refactor
 const styles = theme => ({
   root: {
@@ -34,9 +32,6 @@ const styles = theme => ({
     backgroundColor: getRandomColour(),
     color: '#666'
     //backgroundColor: purple[500]
-  },
-  btn: {
-    //marginLeft: 5
   },
   paperBg: {
     margin: theme.spacing.unit,
@@ -76,7 +71,6 @@ class Inputs extends Component {
     };
     this.updateTodoText = this.updateTodoText.bind(this);
     this.createTodo = this.createTodo.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -99,61 +93,57 @@ class Inputs extends Component {
     });
   }
 
-  handleClick() {
-    this.setState({
-      hidden: true
-    });
-  }
-
   render() {
 
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
-              <Paper className={classes.paperBg}>
-                <h2>Todo</h2>
+        <Paper className={classes.paperBg}>
+          <h2>Todo</h2>
 
-                <form onSubmit={this.createTodo}>
-                  <div>
+          <form onSubmit={this.createTodo}>
+            <div>
 
-                    {/*match color scheme*/}
-                    <MuiThemeProvider theme={theme}>
-                      <Grid container spacing={8} alignItems="flex-end" justify='center'>
-                        
-                        <Grid item>
-                          <Add />
-                        </Grid>
-                        <Grid item>
-                          <TextField
-                            className="inputBox"
-                            id="custom-css-input"
-                            label="Type item here"
-                            type="text"
-                            value={this.state.todoText}
-                            onChange={this.updateTodoText}
-                          />
-                            <Button color="primary" className={classes.btn} onClick={this.handleClick} type="submit">Add</Button>
-                        </Grid>
+              {/*match color scheme*/}
+              <MuiThemeProvider theme={theme}>
+                <Grid container spacing={8} alignItems="flex-end" justify='center'>
 
-                      </Grid>
+                  <Grid item>
+                    <Add />
+                  </Grid>
 
-                    </MuiThemeProvider>
-                  </div>
-                </form>
-              </Paper>
-                {this.state.todos.map((todo, index) => {
-                  return (<Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
-                    <Grid container wrap="nowrap" spacing={16}>
-                      <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                      <Grid item xs={12} zeroMinWidth>
-                        <Typography noWrap>{todo}</Typography>
-                      </Grid>
-                    </Grid>
-                  </Paper>);
-                }
-                )}
-                {this.state.message ? <li>No search results.</li> : ''}
+                  <Grid item>
+                    <TextField
+                      className="inputBox"
+                      id="custom-css-input"
+                      label="Type item here"
+                      type="text"
+                      value={this.state.todoText}
+                      onChange={this.updateTodoText}
+                    />
+                    <Button color="primary" type="submit">Add</Button>
+                  </Grid>
+
+                </Grid>
+
+              </MuiThemeProvider>
+            </div>
+          </form>
+        </Paper>
+        {this.state.todos.map((todo, index) => {
+          return (
+            <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+              <Grid container wrap="nowrap" spacing={16}>
+                <Avatar className={classes.avatar}>{index + 1}</Avatar>
+                <Grid item xs={12} zeroMinWidth>
+                  <Typography noWrap>{todo}</Typography>
+                </Grid>
+              </Grid>
+            </Paper>);
+        }
+        )}
+        {this.state.message ? <li>No search results.</li> : ''}
 
       </div>
     );

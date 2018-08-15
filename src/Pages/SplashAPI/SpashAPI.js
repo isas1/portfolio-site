@@ -1,16 +1,15 @@
+import { endpoint, CLIENT_ID } from './creds';
+
 import React from 'react';
 
 //material-ui
-import { Button, Input, TextField } from '../../../node_modules/@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import {withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
 
-import purple from '@material-ui/core/colors/purple';
-
-const CLIENT_ID = '2f865e7e549eee7c61b5503ce26f540b0687d2fbbae22a4307b9a6d8bdc913f8'
-const endpoint = 'https://api.unsplash.com/search/photos'
+import theme from '../../Components/ThemeChanger/Themes';
 
 const styles = theme => ({
   root: {
@@ -28,12 +27,6 @@ const styles = theme => ({
   }
 })
 
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-  },
-});
-
 class SpashAPIPage extends React.Component {
 
   constructor(props) {
@@ -49,7 +42,8 @@ class SpashAPIPage extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  search() {
+  search(e) {
+    e.preventDefault();
     fetch(`${endpoint}?query=${this.query}&client_id=${CLIENT_ID}`)
       .then(response => {
         return response.json()
@@ -84,31 +78,33 @@ class SpashAPIPage extends React.Component {
       <div className={classes.root}>
         {/*Photos in here*/}
         <MuiThemeProvider theme={theme}>
-        <Paper className={classes.paperBg}>
-        <h2>Photo finder</h2>
-            
-            {/* Input container */}
-            <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
-              <Grid item>
-                <Search />
+          <Paper className={classes.paperBg}>
+            <h2>Photo finder</h2>
+
+            <form onSubmit={this.search}>
+              {/* Input container */}
+              <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
+                <Grid item>
+                  <Search />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    type="text"
+                    label="Type here"
+                    onChange={this.trackQueryValue}
+                  />
+                  <Button color='primary' onClick={this.search} type='submit'>Go</Button>
+                </Grid>
               </Grid>
-              <Grid item>
-                <TextField
-                  type="text"
-                  label="Type here"
-                  onChange={this.trackQueryValue}
-                />
-                <Button color='primary' onClick={this.search}>Go</Button>
-              </Grid>
-            </Grid>
+            </form>
 
             {/* Output container for images */}
             <Grid container spacing={16} justify='space-evenly'>
               {this.images()}
             </Grid>
 
-        </Paper>
-</MuiThemeProvider>
+          </Paper>
+        </MuiThemeProvider>
 
 
       </div>
