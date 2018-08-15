@@ -24,7 +24,6 @@ import MonochromePhoto from '@material-ui/icons/MonochromePhotosRounded';
 import styles from './styles';
 import theme from '../../Components/ThemeChanger/Themes';
 
-console.log(theme);
 //react-router-dom routes
 const routes = [
   {

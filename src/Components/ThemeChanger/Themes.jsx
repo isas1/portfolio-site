@@ -9,7 +9,7 @@ import yellow from '@material-ui/core/colors/yellow';
 
 // create individual themes
 
-// create an array of themes
+// create an array of themes - consider moving to seperate file
 const allThemes = 
 [
   {
@@ -38,6 +38,7 @@ const getTheme = () => {
   });
   return currentTheme;
 }
+
 const theme = getTheme();
 
 // create a function to set the state of theme

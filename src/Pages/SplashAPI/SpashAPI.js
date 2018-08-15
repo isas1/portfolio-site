@@ -61,10 +61,10 @@ class SpashAPIPage extends React.Component {
 
   images() {
     return this.state.images.map(image => {
-      return <Grid item>
+      return <Grid item key={image.id}>
         <Paper className={this.props.image}>
 
-          <img src={image.urls.thumb} alt={image.description} key={image.id} />
+          <img src={image.urls.thumb} alt={image.description}  />
 
         </Paper>
       </Grid>

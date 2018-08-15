@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //import ParticleEffectButton from 'react-particle-effect-button';
 
 //material-ui imports
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Add from '@material-ui/icons/AddCircleOutline';
 import Avatar from '@material-ui/core/Avatar';
@@ -13,10 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
-//material-ui colours - consider moving with refactor
-
-import grey from '@material-ui/core/colors/grey';
-import purple from '@material-ui/core/colors/purple';
+import theme from '../../Components/ThemeChanger/Themes';
 
 // Styles - consider moving with refactor
 const styles = theme => ({
@@ -37,20 +34,10 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   }
 });
-
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-  },
-});
-
+console.log();
 
 function getRandomColour() {
-  const colours = [purple[50], grey[50]]
-  const randomColourIndex = Math.floor(
-    (Math.random() * (colours.length))
-  );
-  return colours[randomColourIndex];
+  return ''+theme.palette.primary[50];
 }
 
 
@@ -117,7 +104,7 @@ class Inputs extends Component {
                       value={this.state.todoText}
                       onChange={this.updateTodoText}
                     />
-                    <Button color="primary" type="submit">Add</Button>
+                    <Button color='primary' type="submit">Add</Button>
                   </Grid>
 
                 </Grid>
