@@ -11,6 +11,8 @@ import Search from '@material-ui/icons/Search';
 
 import theme from '../../Components/ThemeChanger/Themes';
 
+import ParticleEffectButton from 'react-particle-effect-button';
+
 const styles = theme => ({
   root: {
     flexgrow: 1
@@ -34,7 +36,8 @@ class SpashAPIPage extends React.Component {
 
     this.state = {
       images: [],
-      loadingState: true
+      loadingState: true,
+      hidden: false
     };
 
     this.query = '';
@@ -50,7 +53,8 @@ class SpashAPIPage extends React.Component {
       }).then(jsonResponse => {
         console.log(jsonResponse.results);
         this.setState({
-          images: jsonResponse.results
+          images: jsonResponse.results,
+          hidden: true
         })
       })
   }
@@ -64,7 +68,7 @@ class SpashAPIPage extends React.Component {
       return <Grid item key={image.id}>
         <Paper className={this.props.image}>
 
-          <img src={image.urls.thumb} alt={image.description}  />
+          <img src={image.urls.thumb} alt={image.description} />
 
         </Paper>
       </Grid>
@@ -83,18 +87,27 @@ class SpashAPIPage extends React.Component {
 
             <form onSubmit={this.search}>
               {/* Input container */}
+
               <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
-                <Grid item>
-                  <Search />
-                </Grid>
-                <Grid item>
-                  <TextField
-                    type="text"
-                    label="Type here"
-                    onChange={this.trackQueryValue}
-                  />
-                  <Button color='primary' onClick={this.search} type='submit'>Go</Button>
-                </Grid>
+                
+                  <Grid item>
+                  <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                    <Search />
+                    </ParticleEffectButton>
+                  </Grid>
+                  <Grid item>
+                  <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                    <TextField
+                      type="text"
+                      label="Type here"
+                      onChange={this.trackQueryValue}
+                      onFocus={this.rei}
+                    />
+
+                    <Button color='primary' onClick={this.search} type='submit'>Go</Button>
+
+                </ParticleEffectButton>
+                  </Grid>
               </Grid>
             </form>
 
