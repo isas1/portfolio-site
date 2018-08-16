@@ -4,22 +4,24 @@ import React from 'react';
 import LandingPage from '../../Pages/LandingPage';
 import SplashAPI from '../../Pages/SplashAPI/SpashAPI';
 import Todo from '../../Pages/Todo/Todo';
+import Explore from '../../Pages/Explore/Explore';
 
 //material-ui
 
 //components
 
 import AppBar from '@material-ui/core/AppBar'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 
 //icons and colours
 
-import FormatListNumbered from '@material-ui/icons/FormatListNumberedRounded';
-import Home from '@material-ui/icons/HomeRounded';
-import MonochromePhoto from '@material-ui/icons/MonochromePhotosRounded';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
+import HomeIcon from '@material-ui/icons/HomeRounded';
+import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
+import ExploreIcon from '@material-ui/icons/Explore';
 
 import styles from './styles';
 import theme from '../../Components/ThemeChanger/Themes';
@@ -41,6 +43,11 @@ const routes = [
     path: "/pictures",
     sidebar: () => <SplashAPI />,
     main: () => <h2>SplashAPI</h2>
+  },
+  {
+    path: "/explore",
+    sidebar: () => <Explore />,
+    main: () => <h2>Explore</h2>
   }
 ];
 
@@ -49,6 +56,7 @@ class NavBar extends React.Component {
   state = {
     //auth: true,
     anchorEl: null,
+    active: false
   };
 
   handleMenu = event => {
@@ -77,15 +85,19 @@ class NavBar extends React.Component {
                 <div style={{ display: "flex" }}>
 
                   <IconButton>
-                    <Link to="/"><Home color='secondary'></Home></Link>
+                    <NavLink to="/" exact={true} activeClassName={classes.active}><HomeIcon color='secondary'></HomeIcon></NavLink>
                   </IconButton>
 
                   <IconButton>
-                    <Link to="/todo"><FormatListNumbered color='secondary'></FormatListNumbered></Link>
+                    <NavLink to="/todo" exact={true} activeClassName={classes.active}><FormatListNumberedIcon color='secondary'></FormatListNumberedIcon></NavLink>
                   </IconButton>
 
                   <IconButton>
-                    <Link to="/pictures"><MonochromePhoto color='secondary'></MonochromePhoto></Link>
+                    <NavLink to="/pictures" exact={true} activeClassName={classes.active}><MonochromePhotoIcon color='secondary'></MonochromePhotoIcon></NavLink>
+                  </IconButton>
+
+                  <IconButton>
+                    <NavLink to="/explore" exact={true} activeClassName={classes.active}><ExploreIcon color='secondary'></ExploreIcon></NavLink>
                   </IconButton>
 
                 </div>
