@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SplitText from 'react-pose-text';
 //import SocialIcons from '@components/SocialIcons';
 //import Nav from '@components/Nav';
 //import ScrollToNext from '@components/ScrollToNext';
@@ -9,8 +10,13 @@ import './style.css';
 
 const LandingPage = (props, context) => {
 
-  const bgPrimary = '#FFFFFF'
-  const colorPrimary = '333333'
+  const bgPrimary = '#FFFFFF';
+  const colorPrimary = '333333';
+
+  const charPoses = {
+    enter: { opacity: 1 },
+    exit: { opacity: 0 }
+  };
 
   //const { theme: { bgPrimary, colorPrimary } } = context;
 
@@ -20,7 +26,7 @@ const LandingPage = (props, context) => {
       <main style={{ color: colorPrimary }}>
         {/*<BrowserNotes />*/}
         <div className="intro-wrapper">
-          <div className="intro-name">Hello, I'm Sam!</div>
+           <div className="intro-name"><SplitText charPoses={charPoses}>Hello, I'm Sam!</SplitText></div>
           <div className="tagline">
             Full Stack Dev | Tech Enthusiast | Teacher
           </div>
