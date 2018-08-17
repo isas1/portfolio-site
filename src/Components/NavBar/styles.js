@@ -1,14 +1,13 @@
 import theme from '../ThemeChanger/Themes';
-
-console.log(theme.palette.primary[50]);
 // Navigation bar styles
-const styles = theme => ({
+const styles = () => ({
   root: {
     flexGrow: 1
   },
   active: {
     borderRadius: 100,
-    boxShadow: '0 3px 10px 5px #888888' 
+    boxShadow: '0 3px 10px 5px #888888',
+    backgroundColor: theme.palette.primary[50]
   },
   flex: {
     // Allows next icon/elemend in Navbar to 'float right'

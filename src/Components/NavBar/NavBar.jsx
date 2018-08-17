@@ -10,7 +10,7 @@ import Explore from '../../Pages/Explore/Explore';
 
 //components
 
-import AppBar from '@material-ui/core/AppBar'
+import AppBar from '@material-ui/core/AppBar';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -21,10 +21,12 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
-import ExploreIcon from '@material-ui/icons/Explore';
+import ExploreIcon from '@material-ui/icons/ExploreRounded';
+import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
 
 import styles from './styles';
-import theme from '../../Components/ThemeChanger/Themes';
+//import theme from '../../Components/ThemeChanger/Themes';
+console.log(this.state)
 
 //react-router-dom routes
 const routes = [
@@ -53,33 +55,45 @@ const routes = [
 
 class NavBar extends React.Component {
 
+  
   state = {
     //auth: true,
     anchorEl: null,
     active: false
   };
 
-  handleMenu = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
 
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleThemeSwitch = (classes) => {
+    null
+  }
+  
+
   render() {
+
+
 
     const { classes } = this.props;
     //const { anchorEl } = this.state;
     //const open = Boolean(anchorEl);
-
     return (
+      <MuiThemeProvider theme={this.props.theme} >
       <Router>
         <div className={classes.root}>
-          <MuiThemeProvider theme={theme}>
             <AppBar className={classes.navOverride} position='static'>
               <Toolbar>
 
+                <IconButton>
+                  <FormatPaintIcon color='secondary' onClick={this.handleThemeSwitch({ classes })}></FormatPaintIcon>
+                </IconButton>
+
+                {/* divider between left and right icons */}
                 <div className={classes.flex}></div>
 
                 <div style={{ display: "flex" }}>
@@ -103,7 +117,6 @@ class NavBar extends React.Component {
                 </div>
               </Toolbar>
             </AppBar>
-          </MuiThemeProvider>
           <div>
 
             {routes.map((route, index) => (
@@ -120,6 +133,7 @@ class NavBar extends React.Component {
           </div>
         </div>
       </Router>
+      </MuiThemeProvider>
     )
   }
 }

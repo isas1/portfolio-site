@@ -11,7 +11,7 @@ const LandingPage = (props, context) => {
 
   const bgPrimary = '#FFFFFF'
   const colorPrimary = '333333'
-  
+
   //const { theme: { bgPrimary, colorPrimary } } = context;
 
   return (
@@ -22,7 +22,7 @@ const LandingPage = (props, context) => {
         <div className="intro-wrapper">
           <div className="intro-name">Hello, I'm Sam!</div>
           <div className="tagline">
-            Full Stack Dev | Tech Enthusiast | Teacher 
+            Full Stack Dev | Tech Enthusiast | Teacher
           </div>
           {/*<SocialIcons />*/}
         </div>

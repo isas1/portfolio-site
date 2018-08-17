@@ -34,7 +34,6 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   }
 });
-console.log();
 
 function getRandomColour() {
   return ''+theme.palette.primary[50];

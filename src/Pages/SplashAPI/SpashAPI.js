@@ -51,7 +51,6 @@ class SpashAPIPage extends React.Component {
       .then(response => {
         return response.json()
       }).then(jsonResponse => {
-        console.log(jsonResponse.results);
         this.setState({
           images: jsonResponse.results,
           hidden: true

@@ -1,4 +1,4 @@
-import { createMuiTheme, withTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 // import themes and colours here
 import purple from '@material-ui/core/colors/purple';
@@ -25,7 +25,7 @@ const allThemes =
 ]
 
 // create a function to choose a random theme from an array of themes
-function getTheme() {
+const getTheme = () => {
 
   const randomThemeIndex = Math.floor(
     (Math.random() * (allThemes.length))
@@ -42,8 +42,7 @@ function getTheme() {
 
 const theme = getTheme();
 
-
 // create a function to set the state of theme
 
 // export the theme - to be availble ar 'theme' by other components
-export default (theme); // passes the theme as a property
+export default theme;
