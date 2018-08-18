@@ -69,10 +69,6 @@ class NavBar extends React.Component {
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
-
-  handleThemeSwitch = (classes) => {
-    null
-  }
   
 
   render() {
