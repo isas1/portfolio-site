@@ -1,4 +1,4 @@
-import { createMuiTheme, withTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 // import themes and colours here
 import purple from '@material-ui/core/colors/purple';
