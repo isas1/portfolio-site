@@ -21,7 +21,7 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
-import ExploreIcon from '@material-ui/icons/ExploreRounded';
+//import ExploreIcon from '@material-ui/icons/ExploreRounded';
 import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
 
 import styles from './styles';
@@ -106,9 +106,11 @@ class NavBar extends React.Component {
                     <NavLink to="/pictures" exact={true} activeClassName={classes.active}><MonochromePhotoIcon color='secondary'></MonochromePhotoIcon></NavLink>
                   </IconButton>
 
+                  {/* Delete to add fouth icon
                   <IconButton>
                     <NavLink to="/explore" exact={true} activeClassName={classes.active}><ExploreIcon color='secondary'></ExploreIcon></NavLink>
                   </IconButton>
+                  */}
 
                 </div>
               </Toolbar>
