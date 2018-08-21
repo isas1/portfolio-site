@@ -86,7 +86,7 @@ class NavBar extends React.Component {
               <Toolbar>
 
                 <IconButton>
-                  <FormatPaintIcon color='secondary' onClick={this.handleThemeSwitch({ classes })}></FormatPaintIcon>
+                  <FormatPaintIcon color='secondary'></FormatPaintIcon>
                 </IconButton>
 
                 {/* divider between left and right icons */}
