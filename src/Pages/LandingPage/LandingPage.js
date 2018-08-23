@@ -1,12 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SocialIcons from '../../Components/SocialIcons';
+import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 //import Nav from '@components/Nav';
 //import ScrollToNext from '@components/ScrollToNext';
 //import BrowserNotes from '@components/BrowserNotes';
 
-import './style.css';
+import Grid from '@material-ui/core/Grid';
 
+import theme from '../../Components/ThemeChanger/Themes';
+//import './style.css';
+
+const styles = () => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 2,
+    height: '82vh'
+
+  },
+  outerContainer: {
+    border: 'solid 1px blue'
+  },
+  introWrapper: {
+    border: 'solid 1px pink'
+  },
+  introName: {
+    border: 'solid 1px green',
+    textAlign: 'center',
+    [theme.breakpoints.up('xs')]: {
+      fontSize: '3em'
+    },
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '5em'
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '7em'
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '9em'
+    }
+  },
+  tagline: {
+    border: 'solid 1px orange',
+    textAlign: 'center',
+    margin: '1vh 0 2vh 0px',
+    [theme.breakpoints.up('xs')]: {
+      fontSize: '1em'
+    },
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2em'
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '3em'
+    },
+    [theme.breakpoints.up('lg')]: {
+      fontSize: '4em'
+    }
+  },
+  icons: {
+    border: 'solid 1px purple',
+    textAlign: 'center'
+  }
+
+});
 
 class LandingPage extends React.Component {
 
@@ -31,28 +87,44 @@ class LandingPage extends React.Component {
   }
 
   render() {
+
+    const { classes } = this.props;
+
     return (
-      <div style={{ backgroundColor: '#FFFFFF' }} className="landing-page">
-        {/*<Nav />*/}
-        <main style={{ color: '333333' }}>
-          {/*<BrowserNotes />*/}
-          <div className="intro-wrapper">
-             <div className="intro-name" style={{ boxShadow: !this.state.hovered ?  null : this.state.boxColour }} onMouseEnter={ this.handleMouseEnterHandler } onMouseLeave={ this.handleMouseLeaveHandler }>Hello, I'm Sam!</div>
-            <div className="tagline">
-              Full Stack Dev | Tech Enthusiast | Teacher
-            </div>
-            <SocialIcons />
-          </div>
-        </main>
-        {/*<ScrollToNext pageSelector=".about-page" />*/}
-      </div>
+        <MuiThemeProvider theme={theme}>
+          <Grid container alignItems='center' className={classes.root}>
+
+            <Grid container className={classes.introWrapper}>
+              
+              <Grid
+                item
+                xs={12}
+                md={4}
+
+                className={classes.introName}
+                onMouseEnter={this.handleMouseEnterHandler}
+                onMouseLeave={this.handleMouseLeaveHandler}
+              >
+                Hello, I'm Sam!
+              </Grid>
+
+              <Grid item xs={12} md={4} className={classes.tagline}>
+                Full Stack Dev | Tech Enthusiast | Teacher
+              </Grid>
+
+              <Grid item xs={12} md={4} className={classes.icons}>
+                <SocialIcons />
+              </Grid>
+            </Grid>
+          </Grid>
+        </MuiThemeProvider>
     );
   };
-  }
-  
+}
+
 
 LandingPage.contextTypes = {
   theme: PropTypes.any
 };
 
-export default LandingPage;
+export default withStyles(styles)(LandingPage);

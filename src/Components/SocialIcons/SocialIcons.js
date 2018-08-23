@@ -5,15 +5,10 @@ import { FaGithub } from 'react-icons/fa';
 import { FaSpaceShuttle } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
-const iconStyle = {
-  size: '3em',
-  border: '5px solid pink'
-};
-
 const SocialIcons = () => {
   
   return (
-    <IconContext.Provider value={{ style: {iconStyle}}}>
+    <IconContext.Provider value={{ padding: 5, size: '2em'}}>
         <a href="https://github.com/isas1" ><FaGithub /></a>
         <a href="https://isas1.github.io" ><FaSpaceShuttle /></a>
         {/*
