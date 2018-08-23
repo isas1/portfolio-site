@@ -28,16 +28,16 @@ const styles = () => ({
     border: 'solid 1px green',
     textAlign: 'center',
     [theme.breakpoints.up('xs')]: {
-      fontSize: '3em'
+      fontSize: '4em'
     },
     [theme.breakpoints.up('sm')]: {
-      fontSize: '5em'
+      fontSize: '6em'
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '7em'
+      fontSize: '8em'
     },
     [theme.breakpoints.up('lg')]: {
-      fontSize: '9em'
+      fontSize: '10em'
     }
   },
   tagline: {
@@ -45,16 +45,16 @@ const styles = () => ({
     textAlign: 'center',
     margin: '1vh 0 2vh 0px',
     [theme.breakpoints.up('xs')]: {
-      fontSize: '1em'
+      fontSize: '1.5em'
     },
     [theme.breakpoints.up('sm')]: {
-      fontSize: '2em'
-    },
-    [theme.breakpoints.up('md')]: {
       fontSize: '3em'
     },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '5em'
+    },
     [theme.breakpoints.up('lg')]: {
-      fontSize: '4em'
+      fontSize: '7em'
     }
   },
   icons: {
@@ -99,7 +99,6 @@ class LandingPage extends React.Component {
               <Grid
                 item
                 xs={12}
-                md={4}
 
                 className={classes.introName}
                 onMouseEnter={this.handleMouseEnterHandler}
@@ -108,11 +107,11 @@ class LandingPage extends React.Component {
                 Hello, I'm Sam!
               </Grid>
 
-              <Grid item xs={12} md={4} className={classes.tagline}>
+              <Grid item xs={12} className={classes.tagline}>
                 Full Stack Dev | Tech Enthusiast | Teacher
               </Grid>
 
-              <Grid item xs={12} md={4} className={classes.icons}>
+              <Grid item xs={12} className={classes.icons}>
                 <SocialIcons />
               </Grid>
             </Grid>
