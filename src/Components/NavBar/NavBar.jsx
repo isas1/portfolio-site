@@ -26,7 +26,6 @@ import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
 
 import styles from './styles';
 //import theme from '../../Components/ThemeChanger/Themes';
-console.log(this.state)
 
 //react-router-dom routes
 const routes = [

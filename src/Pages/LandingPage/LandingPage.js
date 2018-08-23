@@ -19,13 +19,10 @@ const styles = () => ({
 
   },
   outerContainer: {
-    border: 'solid 1px blue'
   },
   introWrapper: {
-    border: 'solid 1px pink'
   },
   introName: {
-    border: 'solid 1px green',
     textAlign: 'center',
     [theme.breakpoints.up('xs')]: {
       fontSize: '4em'
@@ -41,7 +38,6 @@ const styles = () => ({
     }
   },
   tagline: {
-    border: 'solid 1px orange',
     textAlign: 'center',
     margin: '1vh 0 2vh 0px',
     [theme.breakpoints.up('xs')]: {
@@ -58,7 +54,6 @@ const styles = () => ({
     }
   },
   icons: {
-    border: 'solid 1px purple',
     textAlign: 'center'
   }
 
