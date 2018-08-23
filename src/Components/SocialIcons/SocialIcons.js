@@ -8,6 +8,8 @@ import { IconContext } from "react-icons";
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
+import theme from '../../Components/ThemeChanger/Themes';
+
 const styles = {
   icon: {
     marginRight: 15,
@@ -20,10 +22,11 @@ class SocialIcons extends React.Component {
   render () {
 
     const {classes} = this.props;
+    console.log(theme.palette.primary[50])
 
     return (
 
-      <IconContext.Provider value={{ size: '4.5em' }}>
+      <IconContext.Provider value={{ size: '4.5em', color: theme.palette.primary[500] }}>
       <Grid container justify='center'>
         <Grid item className={ classes.icon }><a href="https://github.com/isas1" ><FaGithub /></a></Grid>
         <Grid item className={ classes.icon }><a href="https://isas1.github.io" ><FaSpaceShuttle /></a></Grid>

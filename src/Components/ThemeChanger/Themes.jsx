@@ -1,11 +1,20 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
 // import themes and colours here
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import deepPurple from '@material-ui/core/colors/deepPurple';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 
 import grey from '@material-ui/core/colors/grey';
 import yellow from '@material-ui/core/colors/yellow';
+
+import brown from '@material-ui/core/colors/brown';
+import green from '@material-ui/core/colors/green';
+
+import indigo from '@material-ui/core/colors/indigo';
+import blue from '@material-ui/core/colors/blue';
+
+import red from '@material-ui/core/colors/red';
+import orange from '@material-ui/core/colors/orange';
 
 // create individual themes
 
@@ -14,13 +23,33 @@ const allThemes =
 [
   {
     name: 'theme1',
-    primary: purple,
-    secondary: green
+    primary: deepPurple,
+    secondary: lightBlue
   },
   {
     name: 'theme2',
     primary: grey,
     secondary: yellow
+  },
+  {
+    name: 'theme3',
+    primary: brown,
+    secondary: green
+  },
+  {
+    name: 'theme4',
+    primary: indigo,
+    secondary: lightBlue
+  },
+  {
+    name: 'theme5',
+    primary: blue,
+    secondary: red
+  },
+  {
+    name: 'theme6',
+    primary: orange,
+    secondary: indigo
   }
 ]
 
