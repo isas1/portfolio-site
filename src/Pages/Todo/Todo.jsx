@@ -9,13 +9,14 @@ import Add from '@material-ui/icons/AddCircleOutline';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import Iframe from 'react-iframe';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 import theme from '../../Components/ThemeChanger/Themes';
 
-// Styles - consider moving with refactor
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -23,7 +24,6 @@ const styles = theme => ({
   avatar: {
     backgroundColor: getRandomColour(),
     color: '#666'
-    //backgroundColor: purple[500]
   },
   paperBg: {
     margin: theme.spacing.unit,
@@ -36,7 +36,7 @@ const styles = theme => ({
 });
 
 function getRandomColour() {
-  return ''+theme.palette.primary[50];
+  return '' + theme.palette.primary[50];
 }
 
 
@@ -80,52 +80,69 @@ class Inputs extends Component {
 
     return (
       <div className={classes.root}>
-        <Paper className={classes.paperBg}>
-          <h2>Todo</h2>
+        <Grid container>
+          <Grid item md={6}>
+            <Hidden smDown>
+              <Paper className={classes.paperBg}>
+                <Iframe
+                  url="https://www.google.com/"
+                  width="100%"
+                  height="500px"
+                  position="relative"
+                >
+                </Iframe>
 
-          <form onSubmit={this.createTodo}>
-            <div>
+              </Paper>
+            </Hidden>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Paper className={classes.paperBg}>
+              <h2>Todo</h2>
 
-              {/*match color scheme*/}
-              <MuiThemeProvider theme={theme}>
-                <Grid container spacing={8} alignItems="flex-end" justify='center'>
+              <form onSubmit={this.createTodo}>
+                <div>
 
-                  <Grid item>
-                    <Add />
+                  {/*match color scheme*/}
+                  <MuiThemeProvider theme={theme}>
+                    <Grid container spacing={8} alignItems="flex-end" justify='center'>
+
+                      <Grid item>
+                        <Add />
+                      </Grid>
+
+                      <Grid item>
+                        <TextField
+                          className="inputBox"
+                          id="custom-css-input"
+                          label="Type item here"
+                          type="text"
+                          value={this.state.todoText}
+                          onChange={this.updateTodoText}
+                        />
+                        <Button color='primary' type="submit">Add</Button>
+                      </Grid>
+
+                    </Grid>
+
+                  </MuiThemeProvider>
+                </div>
+              </form>
+            </Paper>
+            {this.state.todos.map((todo, index) => {
+              return (
+                <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+                  <Grid container wrap="nowrap" spacing={16}>
+                    <Avatar className={classes.avatar}>{index + 1}</Avatar>
+                    <Grid item xs={12} zeroMinWidth>
+                      <Typography noWrap>{todo}</Typography>
+                    </Grid>
                   </Grid>
-
-                  <Grid item>
-                    <TextField
-                      className="inputBox"
-                      id="custom-css-input"
-                      label="Type item here"
-                      type="text"
-                      value={this.state.todoText}
-                      onChange={this.updateTodoText}
-                    />
-                    <Button color='primary' type="submit">Add</Button>
-                  </Grid>
-
-                </Grid>
-
-              </MuiThemeProvider>
-            </div>
-          </form>
-        </Paper>
-        {this.state.todos.map((todo, index) => {
-          return (
-            <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
-              <Grid container wrap="nowrap" spacing={16}>
-                <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                <Grid item xs={12} zeroMinWidth>
-                  <Typography noWrap>{todo}</Typography>
-                </Grid>
-              </Grid>
-            </Paper>);
-        }
-        )}
-        {this.state.message ? <li>No search results.</li> : ''}
-
+                </Paper>);
+            }
+            )}
+            {this.state.message ? <li>No search results.</li> : ''}
+          </Grid>
+        </Grid>
       </div>
     );
   }

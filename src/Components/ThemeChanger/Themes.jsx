@@ -5,7 +5,7 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 
 import grey from '@material-ui/core/colors/grey';
-import yellow from '@material-ui/core/colors/yellow';
+import blueGrey from '@material-ui/core/colors/blueGrey';
 
 import brown from '@material-ui/core/colors/brown';
 import green from '@material-ui/core/colors/green';
@@ -14,7 +14,7 @@ import indigo from '@material-ui/core/colors/indigo';
 import blue from '@material-ui/core/colors/blue';
 
 import orange from '@material-ui/core/colors/orange';
-
+import teal from '@material-ui/core/colors/teal';
 // create individual themes
 
 // create an array of themes - consider moving to seperate file
@@ -27,8 +27,8 @@ const allThemes =
   },
   {
     name: 'theme2',
-    primary: grey,
-    secondary: yellow
+    primary: teal,
+    secondary: grey
   },
   {
     name: 'theme3',
@@ -43,7 +43,7 @@ const allThemes =
   {
     name: 'theme5',
     primary: blue,
-    secondary: yellow
+    secondary: blueGrey
   },
   {
     name: 'theme6',

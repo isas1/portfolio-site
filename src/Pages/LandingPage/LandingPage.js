@@ -8,6 +8,7 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Typewriter from '../../Components/Typewriter/Typewriter'
 
 import theme from '../../Components/ThemeChanger/Themes';
 //import './style.css';
@@ -24,8 +25,10 @@ const styles = () => ({
   introWrapper: {
   },
   introName: {
+    color: theme.palette.primary[500],
     textAlign: 'center',
-    textShadow: '4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15)',
+    textShadow: '4px 3px 0px #fff, 0.9vh 0.8vh 0px rgba(0,0,0,0.15)',
+    
     [theme.breakpoints.up('xs')]: {
       fontSize: '4em'
     },
@@ -42,6 +45,7 @@ const styles = () => ({
   tagline: {
     textAlign: 'center',
     margin: '1vh 0 2vh 0px',
+    color: theme.palette.secondary[500],
     [theme.breakpoints.up('xs')]: {
       fontSize: '1.5em'
     },
@@ -60,6 +64,7 @@ const styles = () => ({
   },
   paper: {
     margin: 20,
+    backgroundColor: '#eee'
     //backgroundImage: 'linear-gradient(to bottom, #ffffcf, #fff7dd, #fff6f5, #fffbff, #ffffff)'
   }
 
@@ -93,7 +98,7 @@ class LandingPage extends React.Component {
 
     return (
         <MuiThemeProvider theme={theme}>
-        <Paper elevation='5' className={classes.paper}>
+        <Paper elevation={1} className={classes.paper}>
           <Grid container alignItems='center' className={classes.root}>
             
             <Grid container className={classes.introWrapper}>
@@ -106,7 +111,7 @@ class LandingPage extends React.Component {
                 onMouseEnter={this.handleMouseEnterHandler}
                 onMouseLeave={this.handleMouseLeaveHandler}
               >
-                Hello, I'm Sam!
+                <Typewriter />
               </Grid>
 
               <Grid item xs={12} className={classes.tagline}>
