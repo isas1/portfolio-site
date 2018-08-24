@@ -25,6 +25,7 @@ const styles = () => ({
   },
   introName: {
     textAlign: 'center',
+    textShadow: '4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15)',
     [theme.breakpoints.up('xs')]: {
       fontSize: '4em'
     },
@@ -58,7 +59,8 @@ const styles = () => ({
     textAlign: 'center'
   },
   paper: {
-    margin: 20
+    margin: 20,
+    //backgroundImage: 'linear-gradient(to bottom, #ffffcf, #fff7dd, #fff6f5, #fffbff, #ffffff)'
   }
 
 });
