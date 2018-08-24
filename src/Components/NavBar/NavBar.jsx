@@ -22,7 +22,7 @@ import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
 //import ExploreIcon from '@material-ui/icons/ExploreRounded';
-import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
+//import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
 
 import styles from './styles';
 //import theme from '../../Components/ThemeChanger/Themes';
@@ -84,9 +84,7 @@ class NavBar extends React.Component {
             <AppBar className={classes.navOverride} position='static'>
               <Toolbar>
 
-                <IconButton>
-                  <FormatPaintIcon color='secondary'></FormatPaintIcon>
-                </IconButton>
+                
 
                 {/* divider between left and right icons */}
                 <div className={classes.flex}></div>

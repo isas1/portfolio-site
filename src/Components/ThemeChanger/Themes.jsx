@@ -13,7 +13,6 @@ import green from '@material-ui/core/colors/green';
 import indigo from '@material-ui/core/colors/indigo';
 import blue from '@material-ui/core/colors/blue';
 
-import red from '@material-ui/core/colors/red';
 import orange from '@material-ui/core/colors/orange';
 
 // create individual themes
@@ -44,7 +43,7 @@ const allThemes =
   {
     name: 'theme5',
     primary: blue,
-    secondary: red
+    secondary: yellow
   },
   {
     name: 'theme6',

@@ -22,7 +22,6 @@ class SocialIcons extends React.Component {
   render () {
 
     const {classes} = this.props;
-    console.log(theme.palette.primary[50])
 
     return (
 

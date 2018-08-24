@@ -7,6 +7,7 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 //import BrowserNotes from '@components/BrowserNotes';
 
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 
 import theme from '../../Components/ThemeChanger/Themes';
 //import './style.css';
@@ -55,6 +56,9 @@ const styles = () => ({
   },
   icons: {
     textAlign: 'center'
+  },
+  paper: {
+    margin: 20
   }
 
 });
@@ -87,8 +91,9 @@ class LandingPage extends React.Component {
 
     return (
         <MuiThemeProvider theme={theme}>
+        <Paper elevation='5' className={classes.paper}>
           <Grid container alignItems='center' className={classes.root}>
-
+            
             <Grid container className={classes.introWrapper}>
               
               <Grid
@@ -110,7 +115,9 @@ class LandingPage extends React.Component {
                 <SocialIcons />
               </Grid>
             </Grid>
+            
           </Grid>
+          </Paper>
         </MuiThemeProvider>
     );
   };
