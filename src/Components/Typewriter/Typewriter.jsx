@@ -2,7 +2,7 @@ import React from "react";
 
 class Typewriter extends React.Component {
   state = {
-    itemToDisplay: "Hello, I'm Sam :)",
+    itemToDisplay: "Front End Dev, Teacher... & Student",
     iterator: 0
   };
   componentDidMount() {
@@ -10,15 +10,20 @@ class Typewriter extends React.Component {
   }
 
   componentDidUpdate() {
+    this.type();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.typer);
+  }
+
+  type() {
     if (this.state.iterator === 0) {
       clearInterval(this.typer);
       setTimeout(this.typeWriter, 1000);
     }
   }
 
-  componentWillUnmount() {
-    clearInterval(this.typer);
-  }
 
   typeDelete = () => {
     this.typer = setInterval(() => {

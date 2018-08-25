@@ -8,7 +8,8 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Typewriter from '../../Components/Typewriter/Typewriter'
+import Typewriter from '../../Components/Typewriter/Typewriter';
+import Zoom from '@material-ui/core/Zoom';
 
 import theme from '../../Components/ThemeChanger/Themes';
 //import './style.css';
@@ -28,7 +29,7 @@ const styles = () => ({
     color: theme.palette.primary[500],
     textAlign: 'center',
     textShadow: '4px 3px 0px #fff, 0.9vh 0.8vh 0px rgba(0,0,0,0.15)',
-    
+
     [theme.breakpoints.up('xs')]: {
       fontSize: '4em'
     },
@@ -55,7 +56,7 @@ const styles = () => ({
     [theme.breakpoints.up('md')]: {
       fontSize: '5em'
     },
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.up('xl')]: {
       fontSize: '7em'
     }
   },
@@ -74,7 +75,8 @@ class LandingPage extends React.Component {
 
   state = {
     hovered: false,
-    boxColour: '0px 3px 0px 0px rgba(188, 188, 188, 0.2)'
+    boxColour: '0px 3px 0px 0px rgba(188, 188, 188, 0.2)',
+    loaded: true
   }
 
 
@@ -97,35 +99,40 @@ class LandingPage extends React.Component {
     const { classes } = this.props;
 
     return (
-        <MuiThemeProvider theme={theme}>
-        <Paper elevation={1} className={classes.paper}>
-          <Grid container alignItems='center' className={classes.root}>
-            
-            <Grid container className={classes.introWrapper}>
-              
-              <Grid
-                item
-                xs={12}
+      <MuiThemeProvider theme={theme}>
 
-                className={classes.introName}
-                onMouseEnter={this.handleMouseEnterHandler}
-                onMouseLeave={this.handleMouseLeaveHandler}
-              >
+        <Zoom in={true} timeout={500}>
+          <Paper elevation={1} className={classes.paper}>
+            <Grid container alignItems='center' className={classes.root}>
+
+              <Grid container className={classes.introWrapper}>
+
+                <Grid
+                  item
+                  xs={12}
+
+                  className={classes.introName}
+                  onMouseEnter={this.handleMouseEnterHandler}
+                  onMouseLeave={this.handleMouseLeaveHandler}
+                >
+                  Hello, I'm Sam :)
+                </Grid>
+
+                <Grid item xs={12} className={classes.tagline}>
                 <Typewriter />
               </Grid>
+                <Grid item xs={12} className={classes.icons}>
 
-              <Grid item xs={12} className={classes.tagline}>
-                Full Stack Dev | Tech Enthusiast | Teacher
+                  <SocialIcons />
+
+                </Grid>
+
               </Grid>
 
-              <Grid item xs={12} className={classes.icons}>
-                <SocialIcons />
-              </Grid>
             </Grid>
-            
-          </Grid>
           </Paper>
-        </MuiThemeProvider>
+        </Zoom>
+      </MuiThemeProvider>
     );
   };
 }

@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
+import Typography from '@material-ui/core/Typography';
 
 import theme from '../../Components/ThemeChanger/Themes';
 
@@ -18,7 +19,10 @@ const styles = theme => ({
     flexgrow: 1
   },
   image: {
-    padding: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 2,
+    maxHeight: 300,
+    maxWidth: 300,
+    borderRadius: 20
   },
   inputs: {
     paddingBottom: theme.spacing.unit * 3
@@ -26,6 +30,9 @@ const styles = theme => ({
   paperBg: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2
+  },
+  imagePaper: {
+    padding: 10
   }
 })
 
@@ -43,6 +50,7 @@ class SpashAPIPage extends React.Component {
     this.query = '';
     this.trackQueryValue = this.trackQueryValue.bind(this);
     this.search = this.search.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
   }
 
   search(e) {
@@ -55,19 +63,27 @@ class SpashAPIPage extends React.Component {
           images: jsonResponse.results,
           hidden: true
         })
+        console.log(this.state.images);
       })
+
   }
 
   trackQueryValue(ev) {
     this.query = ev.target.value;
   }
 
+  handleFocus() {
+    console.log(this.state)
+  }
+
   images() {
     return this.state.images.map(image => {
       return <Grid item key={image.id}>
-        <Paper className={this.props.image}>
+        <Paper className={this.props.classes.imagePaper}>
 
-          <img src={image.urls.thumb} alt={image.description} />
+          <img className={this.props.classes.image} src={image.urls.thumb} alt={image.description} />
+          <Typography color='primary'>{image.likes} likes  </Typography>
+          <Typography color='secondary'>Snapped by: {image.user.first_name}</Typography>
 
         </Paper>
       </Grid>
@@ -82,33 +98,43 @@ class SpashAPIPage extends React.Component {
         {/*Photos in here*/}
         <MuiThemeProvider theme={theme}>
           <Paper className={classes.paperBg}>
-            <h2>Photo finder</h2>
+            <Grid container spacing={24}>
 
-            <form onSubmit={this.search}>
-              {/* Input container */}
-
-              <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
-                
-                  <Grid item>
-                  <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
-                    <Search />
-                    </ParticleEffectButton>
-                  </Grid>
-                  <Grid item>
-                  <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
-                    <TextField
-                      type="text"
-                      label="Type here"
-                      onChange={this.trackQueryValue}
-                      onFocus={this.rei}
-                    />
-
-                    <Button color='primary' onClick={this.search} type='submit'>Go</Button>
-
-                </ParticleEffectButton>
-                  </Grid>
+              <Grid item>
+                <h2>Photo finder</h2>
               </Grid>
-            </form>
+
+              <Grid item>
+                <form onSubmit={this.search}>
+                  {/* Input container */}
+
+                  <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
+
+                    <Grid item>
+                      <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                        <Search />
+                      </ParticleEffectButton>
+                    </Grid>
+                    <Grid item>
+                      <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                        <TextField
+                          type="text"
+                          label="Type here"
+                          onChange={this.trackQueryValue}
+                          onFocus={this.handleFocus}
+                        />
+
+                        <Button color='primary' onClick={this.search} type='submit'>Go</Button>
+
+                      </ParticleEffectButton>
+                    </Grid>
+                  </Grid>
+                </form>
+              </Grid>
+            </Grid>
+
+
+
 
             {/* Output container for images */}
             <Grid container spacing={16} justify='space-evenly'>
