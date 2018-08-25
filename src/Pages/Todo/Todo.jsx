@@ -10,12 +10,13 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
-import Iframe from 'react-iframe';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 import theme from '../../Components/ThemeChanger/Themes';
+
+import { FaArrowAltCircleRight } from 'react-icons/fa';
 
 const styles = theme => ({
   root: {
@@ -25,9 +26,17 @@ const styles = theme => ({
     backgroundColor: getRandomColour(),
     color: '#666'
   },
-  paperBg: {
+  paperRightTitle: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2
+  },
+  paperLeft: {
+    margin: theme.spacing.unit,
+    padding: theme.spacing.unit * 2,
+    height: '82vh'
+  },
+  leftInnerContainer: {
+    border: 'solid 1px black'
   },
   listItems: {
     margin: theme.spacing.unit,
@@ -80,23 +89,20 @@ class Inputs extends Component {
 
     return (
       <div className={classes.root}>
-        <Grid container>
+        <Grid container spacing={16}>
           <Grid item md={6}>
             <Hidden smDown>
-              <Paper className={classes.paperBg}>
-                <Iframe
-                  url="https://www.google.com/"
-                  width="100%"
-                  height="500px"
-                  position="relative"
-                >
-                </Iframe>
-
+              <Paper className={classes.paperLeft}  >
+                <Grid container alignItems='stretch' justify='center' className={classes.leftInnerContainer}>
+                  <Grid item >
+                    <Typography variant='title'> Make the window smaller to hide me. <FaArrowAltCircleRight /></Typography>
+                  </Grid>
+                </Grid>
               </Paper>
             </Hidden>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Paper className={classes.paperBg}>
+            <Paper className={classes.paperRightTitle}>
               <h2>Todo</h2>
 
               <form onSubmit={this.createTodo}>
