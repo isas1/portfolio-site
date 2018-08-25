@@ -8,6 +8,12 @@ import theme from './Components/ThemeChanger/Themes';
 
 import { MuiThemeProvider } from 'material-ui/styles';
 
+const contentStyle = {
+  display: 'flex',
+  minHeight: '100vh',
+  flexDirection: 'column'
+}
+
 class App extends Component {
 
   render() {
@@ -15,7 +21,7 @@ class App extends Component {
       
       <div>
         <MuiThemeProvider theme={theme}>
-          <div>
+          <div style={contentStyle} >
             <NavBar theme={theme}/>
             <Footer />
           </div>
