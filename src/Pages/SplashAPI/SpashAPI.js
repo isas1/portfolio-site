@@ -5,6 +5,7 @@ import React from 'react';
 //material-ui
 import { Button, TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Grow from '@material-ui/core/Grow';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
@@ -13,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import theme from '../../Components/ThemeChanger/Themes';
 
 import ParticleEffectButton from 'react-particle-effect-button';
+
 
 const styles = theme => ({
   root: {
@@ -50,7 +52,6 @@ class SpashAPIPage extends React.Component {
     this.query = '';
     this.trackQueryValue = this.trackQueryValue.bind(this);
     this.search = this.search.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
   }
 
   search(e) {
@@ -70,10 +71,6 @@ class SpashAPIPage extends React.Component {
 
   trackQueryValue(ev) {
     this.query = ev.target.value;
-  }
-
-  handleFocus() {
-    console.log(this.state)
   }
 
   images() {
@@ -97,12 +94,17 @@ class SpashAPIPage extends React.Component {
       <div className={classes.root}>
         {/*Photos in here*/}
         <MuiThemeProvider theme={theme}>
+        <Grow in={true}>
           <Paper className={classes.paperBg}>
             <Grid container spacing={24}>
 
-              <Grid item>
-                <h2>Photo finder</h2>
-              </Grid>
+              
+                <Grid item>
+                  <h2>Photo finder</h2>
+                </Grid>
+              
+
+              
 
               <Grid item>
                 <form onSubmit={this.search}>
@@ -121,7 +123,6 @@ class SpashAPIPage extends React.Component {
                           type="text"
                           label="Type here"
                           onChange={this.trackQueryValue}
-                          onFocus={this.handleFocus}
                         />
 
                         <Button color='primary' onClick={this.search} type='submit'>Go</Button>
@@ -131,7 +132,9 @@ class SpashAPIPage extends React.Component {
                   </Grid>
                 </form>
               </Grid>
+              
             </Grid>
+            
 
 
 
@@ -142,6 +145,7 @@ class SpashAPIPage extends React.Component {
             </Grid>
 
           </Paper>
+          </Grow>
         </MuiThemeProvider>
 
 

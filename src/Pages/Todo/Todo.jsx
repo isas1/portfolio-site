@@ -105,7 +105,7 @@ class Inputs extends Component {
           </Grid>
           <Grid item xs={12} md={6}>
 
-            <Zoom in={true} timeout={500}>
+            <Slide direction="up" in={true} timeout={500} style={{ transitionDelay: 0 }} mountOnEnter unmountOnExit>
               <Paper className={classes.paperRightTitle}>
                 <h2>Todo</h2>
 
@@ -138,27 +138,28 @@ class Inputs extends Component {
                   </div>
                 </form>
               </Paper>
-            </Zoom>
+            </Slide>
 
             <Slide direction="up" in={true} timeout={1000} style={{ transitionDelay: 500 }} mountOnEnter unmountOnExit>
-            <Grid item>
-              {this.state.todos.map((todo, index) => {
-                return (
+
+              <Grid item>
+                {this.state.todos.map((todo, index) => {
+                  return (
 
 
-                  <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
-                    <Grid container wrap="nowrap" spacing={16}>
-                      <Avatar className={classes.avatar}>{index + 1}</Avatar>
-                      <Grid item xs={12} zeroMinWidth>
-                        <Typography noWrap>{todo}</Typography>
+                    <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+                      <Grid container wrap="nowrap" spacing={16}>
+                        <Avatar className={classes.avatar}>{index + 1}</Avatar>
+                        <Grid item xs={12} zeroMinWidth>
+                          <Typography noWrap>{todo}</Typography>
+                        </Grid>
                       </Grid>
-                    </Grid>
-                  </Paper>
-                );
-              }
-              )}
-              {this.state.message ? <li>No search results.</li> : ''}
-            </Grid>
+                    </Paper>
+                  );
+                }
+                )}
+                {this.state.message ? <li>No search results.</li> : ''}
+              </Grid>
             </Slide>
           </Grid>
         </Grid>
