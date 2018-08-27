@@ -14,7 +14,6 @@ import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Zoom from '@material-ui/core/Zoom';
 
 import theme from '../../Components/ThemeChanger/Themes';
 
@@ -107,36 +106,42 @@ class Inputs extends Component {
 
             <Slide direction="up" in={true} timeout={500} style={{ transitionDelay: 0 }} mountOnEnter unmountOnExit>
               <Paper className={classes.paperRightTitle}>
-                <h2>Todo</h2>
 
-                <form onSubmit={this.createTodo}>
-                  <div>
+                <Grid container spacing={24}>
+                  <Grid item>
+                    <h2>Todo</h2>
+                  </Grid>
 
-                    {/*match color scheme*/}
-                    <MuiThemeProvider theme={theme}>
-                      <Grid container spacing={8} alignItems="flex-end" justify='center'>
+                  <Grid item>
+                    <form onSubmit={this.createTodo}>
+                      <div>
 
-                        <Grid item>
-                          <Add />
-                        </Grid>
+                        {/*match color scheme*/}
+                        <MuiThemeProvider theme={theme}>
+                          <Grid container spacing={8} alignItems="flex-end" justify='center'>
 
-                        <Grid item>
-                          <TextField
-                            className="inputBox"
-                            id="custom-css-input"
-                            label="Type item here"
-                            type="text"
-                            value={this.state.todoText}
-                            onChange={this.updateTodoText}
-                          />
-                          <Button color='primary' type="submit">Add</Button>
-                        </Grid>
+                            <Grid item>
+                              <Add />
+                            </Grid>
 
-                      </Grid>
+                            <Grid item>
+                              <TextField
+                                className="inputBox"
+                                id="custom-css-input"
+                                label="Type item here"
+                                type="text"
+                                value={this.state.todoText}
+                                onChange={this.updateTodoText}
+                              />
+                              <Button color='primary' type="submit">Add</Button>
+                            </Grid>
 
-                    </MuiThemeProvider>
-                  </div>
-                </form>
+                          </Grid>
+                        </MuiThemeProvider>
+                      </div>
+                    </form>
+                  </Grid>
+                </Grid>
               </Paper>
             </Slide>
 

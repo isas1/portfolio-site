@@ -8,11 +8,11 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Typewriter from '../../Components/Typewriter/Typewriter';
-import Zoom from '@material-ui/core/Zoom';
+import Grow from '@material-ui/core/Grow';
 
 import theme from '../../Components/ThemeChanger/Themes';
-//import './style.css';
+import Typer from '../../Components/Typewriter/Typer';
+
 
 const styles = () => ({
   root: {
@@ -101,7 +101,7 @@ class LandingPage extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
 
-        <Zoom in={true} timeout={500}>
+        <Grow in={true} timeout={500}>
           <Paper elevation={1} className={classes.paper}>
             <Grid container alignItems='center' className={classes.root}>
 
@@ -119,7 +119,8 @@ class LandingPage extends React.Component {
                 </Grid>
 
                 <Grid item xs={12} className={classes.tagline}>
-                <Typewriter />
+                <Typer></Typer>
+                
               </Grid>
                 <Grid item xs={12} className={classes.icons}>
 
@@ -131,7 +132,7 @@ class LandingPage extends React.Component {
 
             </Grid>
           </Paper>
-        </Zoom>
+        </Grow>
       </MuiThemeProvider>
     );
   };
