@@ -9,11 +9,11 @@ class Typer extends Component {
   render() { 
     return ( 
     <Typist startDelay={1000} avgTypingDelay={120} delay={10000} cursor={{blink:true, hideWhenDone:true, hideWhenDoneDelay: 100}}>
-      <span>* Student</span>
-      <Typist.Backspace count={7} delay={2000} />
-      <span> Teacher</span>
-      <Typist.Backspace count={7} delay={1000} />
-      <span>Front End Devoloper </span>
+      <span>Student...</span>
+      <Typist.Backspace count={10} delay={2000} />
+      <span>Teacher...</span>
+      <Typist.Backspace count={10} delay={1000} />
+      <span>Front End Devoloper</span>
     </Typist> );
   }
 }

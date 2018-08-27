@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FaFacebook } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { FaSpaceShuttle } from 'react-icons/fa';
 import { IconContext } from "react-icons";
@@ -56,10 +55,6 @@ class SocialIcons extends React.Component {
 
           <Grid item className={classes.icon}>
             <a href="https://github.com/isas1" ><FaGithub/></a>
-          </Grid>
-
-          <Grid item className={classes.icon}>
-            <a href="https://www.facebook.com/profile.php?id=100013105689813" ><FaFacebook/></a>
           </Grid>
 
           <Grid item className={classes.icon}>
