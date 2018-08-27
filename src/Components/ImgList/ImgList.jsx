@@ -10,6 +10,7 @@ const styles =
 	grid: {
 		padding: 8,
 		width: '90%'
+
 	}
 }
 const ImgList = props => {
