@@ -31,16 +31,16 @@ const styles = () => ({
     textShadow: '4px 3px 0px #fff, 0.9vh 0.8vh 0px rgba(0,0,0,0.15)',
 
     [theme.breakpoints.up('xs')]: {
-      fontSize: '4em'
+      fontSize: '2.5em'
     },
     [theme.breakpoints.up('sm')]: {
-      fontSize: '6em'
+      fontSize: '5em'
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '8em'
+      fontSize: '6.5em'
     },
     [theme.breakpoints.up('lg')]: {
-      fontSize: '10em'
+      fontSize: '7.25em'
     }
   },
   tagline: {
@@ -54,10 +54,10 @@ const styles = () => ({
       fontSize: '3em'
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '5em'
+      fontSize: '4em'
     },
     [theme.breakpoints.up('xl')]: {
-      fontSize: '7em'
+      fontSize: '5em'
     }
   },
   icons: {
