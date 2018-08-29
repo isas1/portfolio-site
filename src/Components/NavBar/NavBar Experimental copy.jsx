@@ -38,7 +38,7 @@ const styles = (theme) => ({
     zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
-    // display: 'flex', //prevents main content showing
+    display: 'flex', //prevents main content showing
     width: '100%'
   },
   active: {
@@ -47,6 +47,12 @@ const styles = (theme) => ({
   },
   alignRight: {
     alignItems: 'right'
+  },
+  content: {
+    zIndex: 1,
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing.unit * 3,
   },
   drawerPaper: {
     width: drawerWidth,
@@ -67,9 +73,9 @@ const styles = (theme) => ({
       display: 'none',
     },
   },
-  navOverride: {
+  appBar: {
     position: 'absolute',
-    marginLeft: drawerWidth,
+    marginLeft: this.mobileOpe ? drawerWidth : null,
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${drawerWidth}px)`,
     }
@@ -142,7 +148,7 @@ class NavBar extends React.Component {
       <MuiThemeProvider theme={this.props.theme} >
         <Router>
           <div className={classes.root}>
-            <AppBar className={classes.navOverride} position='static'>
+            <AppBar className={classes.appBar} position='static'>
               <Toolbar>
                 <IconButton
                   color="inherit"
@@ -157,7 +163,7 @@ class NavBar extends React.Component {
                 {/* divider between left and right icons */}
                 <div className={classes.flex}></div>
 
-                <div style={{ display: "flex" }}>
+                <div>
 
                   <IconButton>
                     <NavLink to="/" exact={true} activeClassName={classes.active}><HomeIcon color='secondary'></HomeIcon></NavLink>
@@ -207,7 +213,7 @@ class NavBar extends React.Component {
                 {drawer}
               </Drawer>
             </Hidden>
-            <div>
+            <div className={classes.content}>
 
               {routes.map((route, index) => (
 

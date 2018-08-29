@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
+import Iframe from 'react-iframe';
 import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
@@ -24,7 +25,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   avatar: {
-    backgroundColor: getRandomColour(),
+    backgroundColor: getThemeColour(),
     color: '#666'
   },
   paperRightTitle: {
@@ -36,16 +37,13 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     height: '82vh'
   },
-  leftInnerContainer: {
-    border: 'solid 1px black'
-  },
   listItems: {
     margin: theme.spacing.unit,
     padding: theme.spacing.unit * 2
   }
 });
 
-function getRandomColour() {
+function getThemeColour() {
   return '' + theme.palette.primary[50];
 }
 
@@ -95,8 +93,14 @@ class Inputs extends Component {
             <Hidden smDown>
               <Paper className={classes.paperLeft}  >
                 <Grid container alignItems='stretch' justify='center' className={classes.leftInnerContainer}>
-                  <Grid item >
-                    <Typography variant='title'> Make the window smaller to hide me. <FaArrowAltCircleRight /></Typography>
+                  <Grid item>
+                    <Iframe 
+                      url="https://www.youtube.com/embed/ibGnjSKLqTc"
+                      minWidth="100%"
+                      frameborder="0" 
+                      display="initial"
+                      position="relative"
+                      allowFullScreen />
                   </Grid>
                 </Grid>
               </Paper>
