@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-//import ParticleEffectButton from 'react-particle-effect-button';
-
 //material-ui imports
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 
@@ -15,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 import Slide from '@material-ui/core/Slide';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
+import Grow from '@material-ui/core/Grow';
 
 import theme from '../../Components/ThemeChanger/Themes';
 
@@ -91,9 +90,9 @@ class Inputs extends Component {
         <Grid container spacing={16}>
           <Grid item md={6}>
             <Hidden smDown>
+              
               <Paper className={classes.paperLeft}  >
-                <Grid container alignItems='stretch' justify='center' className={classes.leftInnerContainer}>
-                  <Grid item>
+                
                     <Iframe 
                       url="https://www.youtube.com/embed/ibGnjSKLqTc"
                       minWidth="100%"
@@ -101,14 +100,14 @@ class Inputs extends Component {
                       display="initial"
                       position="relative"
                       allowFullScreen />
-                  </Grid>
-                </Grid>
+                  
               </Paper>
             </Hidden>
           </Grid>
+
           <Grid item xs={12} md={6}>
 
-            <Slide direction="up" in={true} timeout={500} style={{ transitionDelay: 0 }} mountOnEnter unmountOnExit>
+            <Grow in={true} timeout={500}>
               <Paper className={classes.paperRightTitle}>
 
                 <Grid container spacing={24}>
@@ -147,7 +146,7 @@ class Inputs extends Component {
                   </Grid>
                 </Grid>
               </Paper>
-            </Slide>
+            </Grow>
 
             <Slide direction="up" in={true} timeout={1000} style={{ transitionDelay: 500 }} mountOnEnter unmountOnExit>
 

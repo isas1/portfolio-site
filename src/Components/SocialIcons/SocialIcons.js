@@ -13,11 +13,13 @@ import Popover from '@material-ui/core/Popover';
 import theme from '../../Components/ThemeChanger/Themes';
 
 const styles = {
+
   icon: {
-    marginRight: 15,
-    marginLeft: 15
+    marginRight: 10,
+    marginLeft: 10
   },
   popover: {
+    // Targets popover to specific item - spaceship.
     pointerEvents: 'none',
   },
   paper: {
@@ -28,8 +30,33 @@ const styles = {
 class SocialIcons extends React.Component {
   state = {
     anchorEl: null,
-    item: ''
+    item: '',
+    iconSize: '3em'
   };
+
+  updateIconSize() {
+    if(window.innerWidth > 599) {
+      this.setState({
+        iconSize: '4em'
+      })
+    } else if (window.innerWidth > 959) {
+      this.setState({
+        iconSize: '5em'
+      })
+    }
+  }
+
+  // Sets icon size when component first mounts
+  componentDidMount() {
+    alert('componentDidMount');
+    this.updateIconSize();
+    window.addEventListener("resize", this.updateIconSize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateIconSize.bind(this));
+  }
+
 
   handlePopoverOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
@@ -50,7 +77,7 @@ class SocialIcons extends React.Component {
 
     return (
 
-      <IconContext.Provider value={{ size: '4.5em', color: theme.palette.primary[500] }}>
+      <IconContext.Provider value={{ size: this.state.iconSize, color: theme.palette.primary[500] }}>
         <Grid container justify='center' >
 
           <Grid item className={classes.icon}>
