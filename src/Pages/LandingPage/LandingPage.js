@@ -84,14 +84,12 @@ class LandingPage extends React.Component {
     this.setState({
       hovered: true
     })
-    //alert(this.state.hovered);
   }
 
   handleMouseLeaveHandler = () => {
     this.setState({
       hovered: true
     })
-    //alert(this.state.hovered);
   }
 
   render() {
@@ -115,7 +113,7 @@ class LandingPage extends React.Component {
                   onMouseEnter={this.handleMouseEnterHandler}
                   onMouseLeave={this.handleMouseLeaveHandler}
                 >
-                  Hello, I'm Sam :)
+                  Hello, I'm John :)
                 </Grid>
 
                 <Grid item xs={12} className={classes.tagline}>

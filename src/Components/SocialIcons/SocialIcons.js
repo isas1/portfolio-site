@@ -48,7 +48,6 @@ class SocialIcons extends React.Component {
 
   // Sets icon size when component first mounts
   componentDidMount() {
-    alert('componentDidMount');
     this.updateIconSize();
     window.addEventListener("resize", this.updateIconSize.bind(this));
   }
