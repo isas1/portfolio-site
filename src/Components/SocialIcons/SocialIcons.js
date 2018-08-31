@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Popover from '@material-ui/core/Popover';
 
-import theme from '../../Components/ThemeChanger/Themes';
+import theme from '../../components/ThemeChanger/Themes';
 
 const styles = {
 

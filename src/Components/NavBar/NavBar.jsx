@@ -1,10 +1,10 @@
 import React from 'react';
 
 //pages
-import LandingPage from '../../Pages/LandingPage';
-import SplashAPI from '../../Pages/SplashAPI/SpashAPI';
-import Todo from '../../Pages/Todo/Todo';
-import Explore from '../../Pages/Explore/Explore';
+import LandingPage from '../../pages/LandingPage';
+import SplashAPI from '../../pages/SplashAPI/SpashAPI';
+import Todo from '../../pages/Todo/Todo';
+import Explore from '../../pages/Explore/Explore';
 
 //material-ui
 
@@ -21,11 +21,8 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
-//import ExploreIcon from '@material-ui/icons/ExploreRounded';
-//import FormatPaintIcon from '@material-ui/icons/FormatPaintRounded';
 
 import styles from './styles';
-//import theme from '../../Components/ThemeChanger/Themes';
 
 //react-router-dom routes
 const routes = [

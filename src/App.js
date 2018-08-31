@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 //components
-import Footer from './Components/Footer/Footer';
-import NavBar from './Components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import NavBar from './components/NavBar/NavBar';
 
-import theme from './Components/ThemeChanger/Themes';
+import theme from './components/ThemeChanger/Themes';
 
 import { MuiThemeProvider } from 'material-ui/styles';
 

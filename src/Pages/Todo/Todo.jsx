@@ -15,9 +15,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Grow from '@material-ui/core/Grow';
 
-import theme from '../../Components/ThemeChanger/Themes';
-
-import { FaArrowAltCircleRight } from 'react-icons/fa';
+import theme from '../../components/ThemeChanger/Themes';
 
 const styles = theme => ({
   root: {

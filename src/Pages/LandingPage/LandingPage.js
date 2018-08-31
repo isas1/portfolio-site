@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SocialIcons from '../../Components/SocialIcons';
+import SocialIcons from '../../components/SocialIcons';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 //import Nav from '@components/Nav';
 //import ScrollToNext from '@components/ScrollToNext';
@@ -10,8 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Grow from '@material-ui/core/Grow';
 
-import theme from '../../Components/ThemeChanger/Themes';
-import Typer from '../../Components/Typewriter/Typer';
+import theme from '../../components/ThemeChanger/Themes';
+import Typer from '../../components/Typewriter/Typer';
 
 
 const styles = () => ({
@@ -113,7 +113,7 @@ class LandingPage extends React.Component {
                   onMouseEnter={this.handleMouseEnterHandler}
                   onMouseLeave={this.handleMouseLeaveHandler}
                 >
-                  Hello, I'm John :)
+                  Hello, I'm Sam :)
                 </Grid>
 
                 <Grid item xs={12} className={classes.tagline}>
