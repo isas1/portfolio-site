@@ -12,6 +12,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
+// SI. Webpack not loading!!!
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -84,9 +86,10 @@ module.exports = {
     // for React Native Web.
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
-
+      
+      //SI. Alias not working
       '@pages': path.resolve(__dirname, '..', 'src', 'pages'),
-      '@components': path.resolve(__dirname, '..', '..', 'src', 'components'),
+      '@components': '../../src/components/ThemeChanger/Themes',
       
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -191,6 +194,9 @@ module.exports = {
               },
             ],
           },
+
+          // SI. Add SASS loader here, if required.
+
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.
