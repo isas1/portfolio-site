@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import ParticleEffectButton from 'react-particle-effect-button'
 
-import './styles.css';
-
 class ParticlesButton extends Component {
 
 	state = {

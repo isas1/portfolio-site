@@ -64,7 +64,6 @@ class SpashAPIPage extends React.Component {
           images: jsonResponse.results,
           hidden: true
         })
-        console.log(this.state.images);
       })
 
   }

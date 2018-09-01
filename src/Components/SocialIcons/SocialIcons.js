@@ -59,13 +59,10 @@ class SocialIcons extends React.Component {
 
   handlePopoverOpen = event => {
     this.setState({ anchorEl: event.currentTarget });
-    console.log('handlePopoverOpen');
-    console.log(this.state.anchorEl);
   };
 
   handlePopoverClose = () => {
     this.setState({ anchorEl: null });
-    console.log('handlePopoverClose');
   };
 
   render() {
