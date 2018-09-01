@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar/NavBar';
 
-import theme from './components/ThemeChanger/Themes';
+import theme from '@theme';
 
 import { MuiThemeProvider } from 'material-ui/styles';
 

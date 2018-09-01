@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Grow from '@material-ui/core/Grow';
 
-import theme from '@components/ThemeChanger/Themes';
+import theme from '@theme';
 import Typer from '@components/Typewriter/Typer';
 
 

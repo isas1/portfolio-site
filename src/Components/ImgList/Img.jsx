@@ -15,11 +15,6 @@ const Img = props => {
 
     <img className={classes.img} src={props.url} alt="" />
   )
-  /*
-  <li className="img-wrap">
-    <img src={props.url} alt=""/>
-  </li>
-  */
 
 };
 

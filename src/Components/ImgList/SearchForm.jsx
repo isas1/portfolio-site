@@ -2,13 +2,7 @@ import React, { Component } from 'react';
 import { Button, TextField } from '../../../node_modules/@material-ui/core';
 import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import purple from '@material-ui/core/colors/purple';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-  },
-});
+import theme from '@themes';
 
 export default class SearchForm extends Component {
   state = {

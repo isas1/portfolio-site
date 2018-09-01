@@ -14,6 +14,7 @@ import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
 
+//import CreateRoutes from '@utilities/create-routes.jsx'
 import styles from './styles';
 import routes from '@utilities/routes.jsx';
 
@@ -21,7 +22,6 @@ class NavBar extends React.Component {
 
   
   state = {
-    //auth: true,
     anchorEl: null,
     active: false
   };
@@ -37,11 +37,8 @@ class NavBar extends React.Component {
 
   render() {
 
-
-
     const { classes } = this.props;
-    //const { anchorEl } = this.state;
-    //const open = Boolean(anchorEl);
+
     return (
       <MuiThemeProvider theme={this.props.theme} >
       <Router>
@@ -66,28 +63,25 @@ class NavBar extends React.Component {
                     <NavLink to="/pictures" exact={true} activeClassName={classes.active}><MonochromePhotoIcon color='secondary'></MonochromePhotoIcon></NavLink>
                   </IconButton>
 
-                  {/* Delete to add fouth icon
-                  <IconButton>
-                    <NavLink to="/explore" exact={true} activeClassName={classes.active}><ExploreIcon color='secondary'></ExploreIcon></NavLink>
-                  </IconButton>
-                  */}
-
                 </div>
               </Toolbar>
             </AppBar>
           <div>
+          
+          
+            {/*<CreateRoutes />*/}
 
             {
-              routes.map((route, index) => (
-
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.sidebar}
+              routes.map((route, index) => 
+              (
+                <Route 
+                  key={index} 
+                  path={route.path} 
+                  exact={route.exact} 
+                  component={route.sidebar} 
                 />
-        
-              ))
+              )
+            )
             }
 
           </div>

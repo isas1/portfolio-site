@@ -3,8 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import Img from './Img';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 
-import './styles.css';
-
 const styles =
 {
 	grid: {

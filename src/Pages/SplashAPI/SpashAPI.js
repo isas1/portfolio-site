@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 
-import theme from '@components/ThemeChanger/Themes';
+import theme from '@theme';
 
 import ParticleEffectButton from 'react-particle-effect-button';
 
