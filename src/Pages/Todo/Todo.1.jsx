@@ -16,7 +16,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
 
-import theme from '../../components/ThemeChanger/Themes';
+import theme from '@components/ThemeChanger/Themes';
 
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SocialIcons from '../../components/SocialIcons';
+import SocialIcons from '@components/SocialIcons';
 import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 //import Nav from '@components/Nav';
 //import ScrollToNext from '@components/ScrollToNext';
@@ -10,8 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Grow from '@material-ui/core/Grow';
 
-import theme from '../../components/ThemeChanger/Themes';
-import Typer from '../../components/Typewriter/Typer';
+import theme from '@components/ThemeChanger/Themes';
+import Typer from '@components/Typewriter/Typer';
 
 
 const styles = () => ({
@@ -65,7 +65,8 @@ const styles = () => ({
   },
   paper: {
     margin: 20,
-    backgroundColor: '#eee'
+    backgroundColor: '#eee',
+    backgroundImage: 'https://source.unsplash.com/7bwQXzbF6KE/800x500'
     //backgroundImage: 'linear-gradient(to bottom, #ffffcf, #fff7dd, #fff6f5, #fffbff, #ffffff)'
   }
 
@@ -117,9 +118,9 @@ class LandingPage extends React.Component {
                 </Grid>
 
                 <Grid item xs={12} className={classes.tagline}>
-                <Typer></Typer>
-                
-              </Grid>
+                  <Typer></Typer>
+
+                </Grid>
                 <Grid item xs={12} className={classes.icons}>
 
                   <SocialIcons />

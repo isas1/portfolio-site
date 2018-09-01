@@ -1,15 +1,8 @@
 import React from 'react';
 
-//pages
-import LandingPage from '../../pages/LandingPage';
-import SplashAPI from '../../pages/SplashAPI/SpashAPI';
-import Todo from '../../pages/Todo/Todo';
-import Explore from '../../pages/Explore/Explore';
-
 //material-ui
 
 //components
-
 import AppBar from '@material-ui/core/AppBar';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
@@ -17,37 +10,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 
 //icons and colours
-
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
 
 import styles from './styles';
-
-//react-router-dom routes
-const routes = [
-  {
-    path: "/",
-    exact: true,
-    sidebar: () => <LandingPage />,
-    main: () => <h2>Home</h2>
-  },
-  {
-    path: "/todo",
-    sidebar: () => <Todo />,
-    main: () => <h2>Todo</h2>
-  },
-  {
-    path: "/pictures",
-    sidebar: () => <SplashAPI />,
-    main: () => <h2>SplashAPI</h2>
-  },
-  {
-    path: "/explore",
-    sidebar: () => <Explore />,
-    main: () => <h2>Explore</h2>
-  }
-];
+import routes from '@utilities/routes.jsx';
 
 class NavBar extends React.Component {
 
@@ -81,8 +49,6 @@ class NavBar extends React.Component {
             <AppBar className={classes.navOverride} position='static'>
               <Toolbar>
 
-                
-
                 {/* divider between left and right icons */}
                 <div className={classes.flex}></div>
 
@@ -111,16 +77,18 @@ class NavBar extends React.Component {
             </AppBar>
           <div>
 
-            {routes.map((route, index) => (
+            {
+              routes.map((route, index) => (
 
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                component={route.sidebar}
-              />
-
-            ))}
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.sidebar}
+                />
+        
+              ))
+            }
 
           </div>
         </div>

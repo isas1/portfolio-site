@@ -89,8 +89,8 @@ module.exports = {
       
       //SI. Alias not working
       '@pages': path.resolve(__dirname, '..', 'src', 'pages'),
-      '@components': '../../src/components/ThemeChanger/Themes',
-      
+      '@components': path.resolve(__dirname, '..', 'src', 'components'),
+      '@utilities': path.resolve(__dirname, '..', 'src', 'utilities'),
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
