@@ -8,6 +8,7 @@ import theme from '@theme';
 
 import { MuiThemeProvider } from 'material-ui/styles';
 
+// For the sticky footer
 const contentStyle = {
   display: 'flex',
   minHeight: '100vh',

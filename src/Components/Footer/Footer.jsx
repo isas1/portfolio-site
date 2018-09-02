@@ -1,32 +1,41 @@
 import React, { Component } from "react";
 
-import styled from "styled-components";
+//import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
+import {withStyles} from '@material-ui/core';
+import theme from '@theme'
 
-const FooterContainer = styled.div`
-  text-align: right;
-  justify: centre;
-  color: blue !important;
-  position: relative;
-  bottom: 0;
-  width: 100% !important;
-  height: 30px !important ;
-  background: #EEE;
-`;
 
-const footerStyles = {
-  color: '#888',
-  padding: 5
-}
+const styles = () => ({
+  containerStyles: {
+    textAlign: 'right',
+    justify: 'centre',
+    color: 'blue !important',
+    position: 'relative',
+    bottom: 0,
+    width: '100% !important',
+    height: '30px !important',
+    background: theme.palette.grey[100]
+  },
+  footerStyles: {
+    color: '#888',
+    padding: 5
+  }
+  
+})
 
 class Footer extends Component {
   render() {
+    console.log(theme.palette.primary)
+
+    const { classes } = this.props;
+
     return (
-      <FooterContainer>
-        <Typography style={footerStyles}>© Sam Isaacs 2018</Typography>
-      </FooterContainer>
+      <div className={classes.containerStyles}>
+        <Typography className={classes.footerStyles}>© Sam Isaacs 2018</Typography>
+      </div>
     );
   }
 }
 
-export default Footer;
+export default withStyles(styles)(Footer);
