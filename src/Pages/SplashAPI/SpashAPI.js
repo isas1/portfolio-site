@@ -1,20 +1,16 @@
+import React from 'react';
 import { endpoint, CLIENT_ID } from './creds';
 
-import React from 'react';
-
-//material-ui
 import { Button, TextField } from '@material-ui/core';
+import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Grow from '@material-ui/core/Grow';
-import { withStyles, MuiThemeProvider } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Search from '@material-ui/icons/Search';
 import Typography from '@material-ui/core/Typography';
 
-import theme from '@theme';
-
 import ParticleEffectButton from 'react-particle-effect-button';
-
+import theme from '@theme';
 
 const styles = theme => ({
   root: {
