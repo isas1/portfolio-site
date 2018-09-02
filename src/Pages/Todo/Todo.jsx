@@ -100,7 +100,7 @@ class Inputs extends Component {
                       allowFullScreen />
                   
               </Paper>
-
+              
             </Hidden>
           </Grid>
 
@@ -109,7 +109,7 @@ class Inputs extends Component {
             <Grow in={true} timeout={500}>
               <Paper className={classes.paperRightTitle}>
 
-                <Grid container>
+                <Grid container spacing={16}>
                   <Grid item>
                     <h2>Todo</h2>
                   </Grid>

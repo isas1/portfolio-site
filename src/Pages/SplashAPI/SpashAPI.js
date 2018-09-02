@@ -41,7 +41,7 @@ class SpashAPIPage extends React.Component {
 
     this.state = {
       images: [],
-      loadingState: true,
+      loadingState: false,
       hidden: false
     };
 
@@ -52,16 +52,23 @@ class SpashAPIPage extends React.Component {
 
   search(e) {
     e.preventDefault();
+    
+    this.setState({
+      loadingState: true
+    });
+
     fetch(`${endpoint}?query=${this.query}&client_id=${CLIENT_ID}`)
       .then(response => {
         return response.json()
       }).then(jsonResponse => {
         this.setState({
           images: jsonResponse.results,
-          hidden: true
+          hidden: true,
+          loadingState: false
         })
-      })
-
+      }).catch(err => {
+        console.log('Error happened during fetching!', err);
+      });
   }
 
   trackQueryValue(ev) {
@@ -89,57 +96,58 @@ class SpashAPIPage extends React.Component {
       <div className={classes.root}>
         {/*Photos in here*/}
         <MuiThemeProvider theme={theme}>
-        <Grow in={true}>
-          <Paper className={classes.paperBg}>
-            <Grid container spacing={24}>
+          <Grow in={true}>
+            <Paper className={classes.paperBg}>
+              <Grid container spacing={24}>
 
-              
+
                 <Grid item>
                   <h2>Photo finder</h2>
                 </Grid>
-              
+                
+                <Grid item>
+                  <form onSubmit={this.search}>
+                    {/* Input container */}
 
-              
+                    <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
 
-              <Grid item>
-                <form onSubmit={this.search}>
-                  {/* Input container */}
+                      <Grid item>
+                        <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                          <Search />
+                        </ParticleEffectButton>
+                      </Grid>
+                      <Grid item>
+                        <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                          <TextField
+                            type="text"
+                            label="Type here"
+                            onChange={this.trackQueryValue}
+                          />
 
-                  <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
+                          <Button color='primary' onClick={this.search} type='submit'>Go</Button>
 
-                    <Grid item>
-                      <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
-                        <Search />
-                      </ParticleEffectButton>
+                        </ParticleEffectButton>
+                      </Grid>
                     </Grid>
-                    <Grid item>
-                      <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
-                        <TextField
-                          type="text"
-                          label="Type here"
-                          onChange={this.trackQueryValue}
-                        />
+                  </form>
+                </Grid>
 
-                        <Button color='primary' onClick={this.search} type='submit'>Go</Button>
-
-                      </ParticleEffectButton>
-                    </Grid>
-                  </Grid>
-                </form>
               </Grid>
+
+
+
+
+
+              {/* Output container for images */}
+              <Grid container spacing={16} justify='space-evenly'>
               
-            </Grid>
-            
+              {this.state.loadingState
+                    ? <p>Loading</p>
+                    : this.images() }
+                
+              </Grid>
 
-
-
-
-            {/* Output container for images */}
-            <Grid container spacing={16} justify='space-evenly'>
-              {this.images()}
-            </Grid>
-
-          </Paper>
+            </Paper>
           </Grow>
         </MuiThemeProvider>
 
