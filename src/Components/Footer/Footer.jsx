@@ -26,7 +26,6 @@ const styles = () => ({
 
 class Footer extends Component {
   render() {
-    console.log(theme.palette.primary)
 
     const { classes } = this.props;
 

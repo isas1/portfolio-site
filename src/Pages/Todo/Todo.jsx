@@ -85,7 +85,7 @@ class Inputs extends Component {
 
     return (
       <div className={classes.root}>
-        <Grid container spacing={16}>
+        <Grid container>
           <Grid item md={6}>
             <Hidden smDown>
               
@@ -100,6 +100,7 @@ class Inputs extends Component {
                       allowFullScreen />
                   
               </Paper>
+
             </Hidden>
           </Grid>
 
@@ -108,7 +109,7 @@ class Inputs extends Component {
             <Grow in={true} timeout={500}>
               <Paper className={classes.paperRightTitle}>
 
-                <Grid container spacing={24}>
+                <Grid container>
                   <Grid item>
                     <h2>Todo</h2>
                   </Grid>
@@ -147,7 +148,8 @@ class Inputs extends Component {
             </Grow>
 
             <Slide direction="up" in={true} timeout={1000} style={{ transitionDelay: 500 }} mountOnEnter unmountOnExit>
-
+              {/* empty prevents warning when direction prop is passed to Grid */}
+              <div> 
               <Grid item>
                 {this.state.todos.map((todo, index) => {
                   return (
@@ -166,6 +168,7 @@ class Inputs extends Component {
                 )}
                 {this.state.message ? <li>No search results.</li> : ''}
               </Grid>
+              </div>
             </Slide>
           </Grid>
         </Grid>
