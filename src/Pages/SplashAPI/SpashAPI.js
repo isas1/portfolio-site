@@ -52,7 +52,7 @@ class SpashAPIPage extends React.Component {
 
   search(e) {
     e.preventDefault();
-    
+
     this.setState({
       loadingState: true
     });
@@ -112,7 +112,7 @@ class SpashAPIPage extends React.Component {
                     <Grid container justify='center' alignItems='flex-end' className={classes.inputs} spacing={8}>
 
                       <Grid item>
-                        <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
+                      <ParticleEffectButton color='#121019' hidden={this.state.hidden}>
                           <Search />
                         </ParticleEffectButton>
                       </Grid>

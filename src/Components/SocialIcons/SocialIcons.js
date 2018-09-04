@@ -51,7 +51,7 @@ class SocialIcons extends React.Component {
     this.updateIconSize();
     window.addEventListener("resize", this.updateIconSize.bind(this));
   }
-
+  
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateIconSize.bind(this));
   }
