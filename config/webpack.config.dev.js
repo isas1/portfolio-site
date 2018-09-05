@@ -87,7 +87,6 @@ module.exports = {
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: {
       
-      //SI. Alias not working
       '@pages': path.resolve(__dirname, '..', 'src', 'pages'),
       '@components': path.resolve(__dirname, '..', 'src', 'components'),
       '@utilities': path.resolve(__dirname, '..', 'src', 'utilities'),
