@@ -1,15 +1,11 @@
+import React from 'react';
 import Typist from 'react-typist';
-import React, { Component } from 'react';
 
 //required for blinking cursor
 import 'react-typist/dist/Typist.css';
 
-class Typer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { delay: 0 }
-  }
-  render() {
+const SubHeading = () => {
+  
     return (
       <Typist startDelay={1000} avgTypingDelay={120} delay={10000} cursor={{ hideWhenDone: true }}>
         <span>Student...</span>
@@ -19,6 +15,6 @@ class Typer extends Component {
         <span>Front End Developer.</span>
       </Typist>);
   }
-}
 
-export default Typer;
+
+export default SubHeading;

@@ -11,7 +11,7 @@ import Paper from '@material-ui/core/Paper';
 import Grow from '@material-ui/core/Grow';
 
 import theme from '@theme';
-import Typer from '@components/Typewriter/Typer';
+import SubHeading from '@components/Typewriter/SubHeading';
 
 
 const styles = () => ({
@@ -118,11 +118,14 @@ class LandingPage extends React.Component {
                 </Grid>
 
                 <Grid item xs={12} className={classes.tagline}>
-                  <Typer></Typer>
+                  <SubHeading></SubHeading>
 
                 </Grid>
                 <Grid item xs={12} className={classes.icons}>
 
+                  {/* Warning: Can't call setState (or forceUpdate) on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    in SocialIcons (created by WithStyles(SocialIcons))
+    in WithStyles(SocialIcons) (at LandingPage.js:127)... */}
                   <SocialIcons />
 
                 </Grid>

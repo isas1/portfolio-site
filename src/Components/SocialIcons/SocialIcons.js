@@ -28,14 +28,23 @@ const styles = {
 }
 
 class SocialIcons extends React.Component {
-  state = {
-    anchorEl: null,
-    item: '',
-    iconSize: '3em'
-  };
-
+  constructor () {
+    super();
+    this.state = {
+      anchorEl: null,
+      item: '',
+      iconSize: '3em'
+    };
+    
+    this.updateIconSize = this.updateIconSize.bind(this);
+  }
+  
   updateIconSize() {
-    if(window.innerWidth > 599) {
+    if(window.innerWidth < 600) {
+      this.setState({
+        iconSize: '2.5em'
+      })
+    } else if(window.innerWidth > 599) {
       this.setState({
         iconSize: '4em'
       })
@@ -49,11 +58,11 @@ class SocialIcons extends React.Component {
   // Sets icon size when component first mounts
   componentDidMount() {
     this.updateIconSize();
-    window.addEventListener("resize", this.updateIconSize.bind(this));
+    window.addEventListener("resize", this.updateIconSize);
   }
   
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateIconSize.bind(this));
+    window.removeEventListener("resize", this.updateIconSize);
   }
 
 
