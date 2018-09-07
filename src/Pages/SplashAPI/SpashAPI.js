@@ -61,11 +61,12 @@ class SpashAPIPage extends React.Component {
       .then(response => {
         return response.json()
       }).then(jsonResponse => {
-        this.setState({
-          images: jsonResponse.results,
-          hidden: true,
-          loadingState: false
-        })
+        
+          this.setState({
+            images: jsonResponse.results,
+            hidden: true,
+            loadingState: false
+          })
       }).catch(err => {
         console.log('Error happened during fetching!', err);
       });
@@ -85,7 +86,7 @@ class SpashAPIPage extends React.Component {
           <Typography color='secondary'>Snapped by: {image.user.first_name}</Typography>
 
         </Paper>
-      </Grid>
+      </Grid> 
     })
   }
 
@@ -143,7 +144,8 @@ class SpashAPIPage extends React.Component {
               
               {this.state.loadingState
                     ? <p>Loading</p>
-                    : this.images() }
+                    : this.state.images
+                    }
                 
               </Grid>
 
