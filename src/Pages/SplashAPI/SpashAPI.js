@@ -107,6 +107,15 @@ class SpashAPIPage extends React.Component {
                 </Grid>
                 
                 <Grid item>
+
+                {/* 
+                Remove and place in a Search Component
+                      Dependancies: 
+                      - Search function
+                      - this.state.loading, images and hidden
+                      - Enpoint and CLIENT_ID
+                */}
+
                   <form onSubmit={this.search}>
                     {/* Input container */}
 
@@ -142,6 +151,7 @@ class SpashAPIPage extends React.Component {
               {/* Output container for images */}
               <Grid container spacing={16} justify='space-evenly'>
               
+              {/* Create display images component -- catch no items with a conditional */ }
               {this.state.loadingState
                     ? <p>Loading</p>
                     : this.state.images
