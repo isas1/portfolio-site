@@ -61,11 +61,12 @@ class SpashAPIPage extends React.Component {
       .then(response => {
         return response.json()
       }).then(jsonResponse => {
-        this.setState({
-          images: jsonResponse.results,
-          hidden: true,
-          loadingState: false
-        })
+        console.log(jsonResponse.results);
+          this.setState({
+            images: jsonResponse.results,
+            hidden: true,
+            loadingState: false
+          })
       }).catch(err => {
         console.log('Error happened during fetching!', err);
       });
@@ -85,7 +86,7 @@ class SpashAPIPage extends React.Component {
           <Typography color='secondary'>Snapped by: {image.user.first_name}</Typography>
 
         </Paper>
-      </Grid>
+      </Grid> 
     })
   }
 
@@ -106,6 +107,15 @@ class SpashAPIPage extends React.Component {
                 </Grid>
                 
                 <Grid item>
+
+                {/* 
+                Remove and place in a Search Component
+                      Dependancies: 
+                      - Search function
+                      - this.state.loading, images and hidden
+                      - Enpoint and CLIENT_ID
+                */}
+
                   <form onSubmit={this.search}>
                     {/* Input container */}
 
@@ -141,9 +151,11 @@ class SpashAPIPage extends React.Component {
               {/* Output container for images */}
               <Grid container spacing={16} justify='space-evenly'>
               
+              {/* Create display images component -- catch no items with a conditional */ }
               {this.state.loadingState
                     ? <p>Loading</p>
-                    : this.images() }
+                    : this.images()
+                    }
                 
               </Grid>
 
