@@ -61,7 +61,11 @@ class SpashAPIPage extends React.Component {
       .then(response => {
         return response.json()
       }).then(jsonResponse => {
+<<<<<<< HEAD
         console.log(jsonResponse.results);
+=======
+        
+>>>>>>> 32567213bff7eaa57ceb2276669da5134f04102d
           this.setState({
             images: jsonResponse.results,
             hidden: true,
@@ -114,6 +118,7 @@ class SpashAPIPage extends React.Component {
                       - Search function
                       - this.state.loading, images and hidden
                       - Enpoint and CLIENT_ID
+<<<<<<< HEAD
 
                       <ButtonSearch 
                         search={this.search} 
@@ -121,6 +126,8 @@ class SpashAPIPage extends React.Component {
                         loadingState={this.state.loadingState} />
 
                         Error - export default is not found within material ui.
+=======
+>>>>>>> 32567213bff7eaa57ceb2276669da5134f04102d
                 */}
 
                   <form onSubmit={this.search}>
@@ -161,7 +168,11 @@ class SpashAPIPage extends React.Component {
               {/* Create display images component -- catch no items with a conditional */ }
               {this.state.loadingState
                     ? <p>Loading</p>
+<<<<<<< HEAD
                     : this.images()
+=======
+                    : this.state.images
+>>>>>>> 32567213bff7eaa57ceb2276669da5134f04102d
                     }
                 
               </Grid>
