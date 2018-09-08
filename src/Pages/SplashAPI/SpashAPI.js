@@ -114,6 +114,13 @@ class SpashAPIPage extends React.Component {
                       - Search function
                       - this.state.loading, images and hidden
                       - Enpoint and CLIENT_ID
+
+                      <ButtonSearch 
+                        search={this.search} 
+                        hidden={this.state.hidden} 
+                        loadingState={this.state.loadingState} />
+
+                        Error - export default is not found within material ui.
                 */}
 
                   <form onSubmit={this.search}>
