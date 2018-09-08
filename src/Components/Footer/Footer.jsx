@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 //import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
@@ -24,17 +24,14 @@ const styles = () => ({
   
 })
 
-class Footer extends Component {
-  render() {
-
-    const { classes } = this.props;
+const Footer = (styles) => {
+    const { classes } = styles;
 
     return (
       <div className={classes.containerStyles}>
         <Typography className={classes.footerStyles}>© Sam Isaacs 2018</Typography>
       </div>
     );
-  }
 }
 
 export default withStyles(styles)(Footer);
