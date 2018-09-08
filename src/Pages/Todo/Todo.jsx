@@ -155,7 +155,7 @@ class Inputs extends Component {
                   return (
 
 
-                    <Paper className={classes.listItems} key={Math.floor(Math.random() * 500) + 1}>
+                    <Paper className={classes.listItems} key={Math.floor(Math.random() * 5000) + 1}>
                       <Grid container wrap="nowrap" spacing={16}>
                         <Avatar className={classes.avatar}>{index + 1}</Avatar>
                         <Grid item xs={12} zeroMinWidth>
