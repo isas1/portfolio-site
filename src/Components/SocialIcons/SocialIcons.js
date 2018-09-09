@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+//import IconTransitions from './IconTransitions';
 import { FaGithub } from 'react-icons/fa';
+import { FaMoneyBillAlt } from 'react-icons/fa';
 import { FaSpaceShuttle } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import { IconContext } from "react-icons";
 
 import { withStyles } from '@material-ui/core/styles';
@@ -18,33 +20,45 @@ const styles = {
     marginRight: 10,
     marginLeft: 10
   },
+  iconDevTo: {
+    color: theme.palette.primary[500]
+  },
   popover: {
     // Targets popover to specific item - spaceship.
     pointerEvents: 'none',
   },
   paper: {
     padding: theme.spacing.unit,
+  },
+
+  defaultStyle: {
+    transition: `opacity 300ms ease-in-out`,
+    opacity: 0
+  },
+  transitionStyles: {
+    entering: { opacity: 0 },
+    entered: { opacity: 1 },
   }
 }
 
 class SocialIcons extends React.Component {
-  constructor () {
+  constructor() {
     super();
     this.state = {
       anchorEl: null,
       item: '',
       iconSize: '3em'
     };
-    
+
     this.updateIconSize = this.updateIconSize.bind(this);
   }
-  
+
   updateIconSize() {
-    if(window.innerWidth < 600) {
+    if (window.innerWidth < 600) {
       this.setState({
         iconSize: '2.5em'
       })
-    } else if(window.innerWidth > 599) {
+    } else if (window.innerWidth > 599) {
       this.setState({
         iconSize: '4em'
       })
@@ -60,7 +74,7 @@ class SocialIcons extends React.Component {
     this.updateIconSize();
     window.addEventListener("resize", this.updateIconSize);
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateIconSize);
   }
@@ -85,9 +99,29 @@ class SocialIcons extends React.Component {
       <IconContext.Provider value={{ size: this.state.iconSize, color: theme.palette.primary[500] }}>
         <Grid container justify='center' >
 
-          <Grid item className={classes.icon}>
-            <a href="https://github.com/isas1" ><FaGithub/></a>
+          <Grid item className={this.props.classes.icon}>
+            <a href="https://github.com/isas1" ><FaGithub /></a>
           </Grid>
+
+          <Grid item className={classes.icon}>
+            <a href="https://www.linkedin.com/in/samisaacs1/" ><FaLinkedin /></a>
+          </Grid>
+
+          <Grid item className={classes.icon}>
+            <a href="https://theinterestgame.com/#!/landing" ><FaMoneyBillAlt /></a>
+          </Grid>
+
+
+
+
+
+          {/*
+          <Grid item className={classes.icon}>
+            <a href="https://dev.to/isas1">
+              <img src="https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg" alt="Mr.I's DEV Profile" height="30" width="30" className={classes.iconDevTo} />
+            </a>
+          </Grid>
+          */}
 
           <Grid item className={classes.icon}>
             <a href="https://isas1.github.io" >
