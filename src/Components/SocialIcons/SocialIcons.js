@@ -96,7 +96,7 @@ class SocialIcons extends React.Component {
 
     return (
 
-      <IconContext.Provider value={{ size: this.state.iconSize, color: theme.palette.primary[500] }}>
+      <IconContext.Provider value={{ size: this.state.iconSize, color: theme.palette.primary[400] }}>
         <Grid container justify='center' >
 
           <Grid item className={this.props.classes.icon}>

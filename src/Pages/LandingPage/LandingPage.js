@@ -26,9 +26,9 @@ const styles = () => ({
   introWrapper: {
   },
   introName: {
-    color: theme.palette.primary[500],
+    color: theme.palette.primary[400],
     textAlign: 'center',
-    textShadow: '4px 3px 0px #fff, 0.9vh 0.8vh 0px rgba(0,0,0,0.15)',
+    //textShadow: '4px 3px 0px #fff, 0.9vh 0.8vh 0px rgba(0,0,0,0.15)',
 
     [theme.breakpoints.up('xs')]: {
       fontSize: '2.5em'
