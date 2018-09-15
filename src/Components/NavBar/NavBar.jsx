@@ -19,7 +19,6 @@ import styles from './styles';
 import routes from '@utilities/routes.jsx';
 
 class NavBar extends React.Component {
-
   
   state = {
     anchorEl: null,
@@ -43,7 +42,7 @@ class NavBar extends React.Component {
       <MuiThemeProvider theme={this.props.theme} >
       <Router>
         <div className={classes.root}>
-            <AppBar className={classes.navOverride} position='static'>
+            <AppBar color='primary' position='static'>
               <Toolbar>
 
                 {/* divider between left and right icons */}
