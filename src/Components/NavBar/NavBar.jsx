@@ -11,6 +11,7 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core';
 
 //icons and colours
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumberedRounded';
+import ArtTrackIcon from '@material-ui/icons/ArtTrackRounded';
 import HomeIcon from '@material-ui/icons/HomeRounded';
 import MonochromePhotoIcon from '@material-ui/icons/MonochromePhotosRounded';
 
@@ -60,6 +61,10 @@ class NavBar extends React.Component {
 
                   <IconButton>
                     <NavLink to="/pictures" exact={true} activeClassName={classes.active}><MonochromePhotoIcon color='secondary'></MonochromePhotoIcon></NavLink>
+                  </IconButton>
+
+                  <IconButton>
+                    <NavLink to="/explore" exact={true} activeClassName={classes.active}><ArtTrackIcon color='secondary'></ArtTrackIcon></NavLink>
                   </IconButton>
 
                 </div>
