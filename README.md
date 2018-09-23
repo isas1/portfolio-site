@@ -1,3 +1,21 @@
+# My Porfolio Page!
+
+In an attempt to better learn React.js and just understand all things JavaScript at a better level I'm building a new Portfolio site.
+
+##Tools used:
+
+* NPM
+* Create-react-app
+* React-dom
+* Material-UI
+* React-typist
+* React-iframe
+* React-icons - Font Awesome
+
+---
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
