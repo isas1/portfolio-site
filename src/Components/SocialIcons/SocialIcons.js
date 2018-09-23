@@ -80,7 +80,24 @@ class SocialIcons extends React.Component {
   }
 
 
+  // Icons 
+
+  handleEnter(e){
+    console.log(e.target.style);
+    e.target.style.width = '200%' // adds the style 
+
+    // setstate of e.target
+    // this.setState({hover: !this.state.hover})
+  }
+  
+  handleLeave(e){
+    console.log('Leave');
+    e.target.style.width = '100%'
+    // this.setState({hover: !this.state.hover})
+  }
+
   handlePopoverOpen = event => {
+    console.log(event.currentTarget);
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -100,7 +117,7 @@ class SocialIcons extends React.Component {
         <Grid container justify='center' >
 
           <Grid item className={this.props.classes.icon}>
-            <a href="https://github.com/isas1" ><FaGithub /></a>
+            <a onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave} href="https://github.com/isas1" ><FaGithub /></a>
           </Grid>
 
           <Grid item className={classes.icon}>
