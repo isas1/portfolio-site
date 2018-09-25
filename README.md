@@ -1,3 +1,5 @@
+<img align="right" width="100" height="100" src="https://github.com/isas1/portfolio-site/blob/master/favicon_package_v0.16/android-chrome-512x512.png">
+
 # My Porfolio Page!
 
 In an attempt to better learn React.js and just understand all things JavaScript at a better level I'm building a new Portfolio site.
